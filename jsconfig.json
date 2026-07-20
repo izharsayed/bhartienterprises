@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+
+    /* Linting */
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx", "vite.config.js", "eslint.config.js"]
+}
