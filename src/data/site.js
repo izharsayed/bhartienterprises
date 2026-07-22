@@ -9,9 +9,6 @@ export const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
-  { to: "/clients", label: "Clients" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ];
 

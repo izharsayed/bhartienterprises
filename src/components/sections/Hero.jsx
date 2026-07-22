@@ -70,14 +70,15 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-accent)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-accent)]" />
             </span>
-            Trusted since 2016 · Pan-India Deployment
+            Trusted since 2018 · Pan-India Deployment
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.05 }}
-            className="mt-6 font-display text-[44px] font-semibold leading-[1.02] tracking-tight text-[var(--brand)] sm:text-6xl lg:text-[72px]"
+            className="mt-6 text-[44px] font-semibold leading-[1.02] tracking-tight text-[var(--brand)] sm:text-6xl lg:text-[72px]"
+            style={{ fontFamily: "'Raleway', sans-serif" }}
           >
             Building India&apos;s <br />
             <span className="text-gradient">Digital Infrastructure.</span>
@@ -89,8 +90,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            Telecom towers, fiber networks, civil works and engineering services — engineered
-            end-to-end by a team of 100+ specialists across the country.
+            From telecom towers to fiber deployment and civil engineering — comprehensive
+            infrastructure solutions by a team of 100+ specialists nationwide.
           </motion.p>
 
           <motion.div
@@ -117,14 +118,7 @@ export function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-          >
-            <MoveDown className="h-4 w-4 animate-bounce" /> Scroll to discover
-          </motion.div>
+
         </div>
 
         {/* Floating glass stats card */}

@@ -54,7 +54,7 @@ function About() {
       <PageHeader
         eyebrow="About"
         title="Engineering India's next chapter."
-        sub="Since 2016 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
+        sub="Since 2018 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
       />
 
       <AboutSplit />
