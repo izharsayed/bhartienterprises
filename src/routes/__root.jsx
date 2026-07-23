@@ -74,32 +74,32 @@ export const Route = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Bharti Enterprises — Telecom, Fiber & Civil Infrastructure" },
+      { title: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure" },
       {
         name: "description",
         content:
-          "Bharti Enterprises builds India's digital and civil backbone — telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
+          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
       },
       { name: "author", content: "Bharti Enterprises" },
       {
         property: "og:title",
-        content: "Bharti Enterprises — Telecom, Fiber & Civil Infrastructure",
+        content: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure",
       },
       {
         property: "og:description",
         content:
-          "Bharti Enterprises builds India's digital and civil backbone — telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
+          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Bharti Enterprises — Telecom, Fiber & Civil Infrastructure",
+        content: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure",
       },
       {
         name: "twitter:description",
         content:
-          "Bharti Enterprises builds India's digital and civil backbone — telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
+          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
       },
       {
         property: "og:image",

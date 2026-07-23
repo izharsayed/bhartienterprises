@@ -24,12 +24,12 @@ export function Footer() {
             </div>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
               Building India&apos;s digital and civil backbone. Telecom, fiber, electrical,
-              engineering — delivered with the discipline of a global partner and the agility of a
+              engineering delivered with the discipline of a global partner and the agility of a
               specialist.
             </p>
             <div className="mt-8 space-y-3 text-sm text-white/80">
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[var(--brand-accent)]" /> +91 98xxx xxxxx
+                <Phone className="h-4 w-4 text-[var(--brand-accent)]" /> +91 8080669609
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-[var(--brand-accent)]" /> hello@bhartienterprises.in

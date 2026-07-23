@@ -8,13 +8,13 @@ import { CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Bharti Enterprises" },
+      { title: "Services Bharti Enterprises" },
       {
         name: "description",
         content:
           "Telecom, fiber, civil, electrical, engineering, transportation, labour supply and managed outsourcing services.",
       },
-      { property: "og:title", content: "Services — Bharti Enterprises" },
+      { property: "og:title", content: "Services Bharti Enterprises" },
       { property: "og:description", content: "Eight capabilities. One accountable partner." },
     ],
   }),
@@ -50,7 +50,7 @@ function Services() {
       <PageHeader
         eyebrow="Services"
         title="Full-stack infrastructure execution."
-        sub="From RF survey to substation handover — every discipline we offer is delivered in-house by dedicated verticals."
+        sub="From RF survey to substation handover every discipline we offer is delivered in-house by dedicated verticals."
       />
 
       <ServicesGrid />

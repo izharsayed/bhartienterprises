@@ -90,7 +90,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            From telecom towers to fiber deployment and civil engineering — comprehensive
+            From telecom towers to fiber deployment and civil engineering comprehensive
             infrastructure solutions by a team of 100+ specialists nationwide.
           </motion.p>
 

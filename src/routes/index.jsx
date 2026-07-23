@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/sections/Hero";
+import { ProjectCarousel } from "@/components/sections/ProjectCarousel";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
-import { AboutSplit } from "@/components/sections/AboutSplit";
+
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
+
 import { StatsBand } from "@/components/sections/StatsBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
@@ -16,10 +17,11 @@ function Home() {
   return (
     <>
       <Hero />
+      <ProjectCarousel hideHeader={true} />
       <LogoMarquee />
-      <AboutSplit />
+
       <ServicesGrid />
-      <FeaturedProjects />
+
       <StatsBand />
       <Testimonials />
       <CTA />

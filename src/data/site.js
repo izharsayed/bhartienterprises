@@ -2,6 +2,13 @@ import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
+
+// Dynamic imports for the new layout
+const proj1Images = import.meta.glob("@/assets/projects/5g-rollout-north/*.jpg", { eager: true, import: 'default' });
+const proj2Images = import.meta.glob("@/assets/projects/fiber-backbone-express/*.jpg", { eager: true, import: 'default' });
+const proj3Images = import.meta.glob("@/assets/projects/expressway-utility/*.jpg", { eager: true, import: 'default' });
+const proj4Images = import.meta.glob("@/assets/projects/grid-substation-11kv/*.jpg", { eager: true, import: 'default' });
+
 import { Radio, Cable, Building2, Zap, Wrench, Truck, Users, Briefcase } from "lucide-react";
 
 export const nav = [
@@ -28,7 +35,7 @@ export const services = [
   {
     icon: Cable,
     title: "Fiber Network",
-    desc: "OFC laying, blowing, splicing and last-mile FTTH — trenchless and open-cut expertise.",
+    desc: "OFC laying, blowing, splicing and last-mile FTTH trenchless and open-cut expertise.",
   },
   {
     icon: Building2,
@@ -65,8 +72,9 @@ export const services = [
 export const projects = [
   {
     slug: "5g-rollout-north",
-    title: "5G RAN Rollout — North Zone",
+    title: "5G RAN Rollout North Zone",
     image: p1,
+    images: Object.values(proj1Images),
     tag: "Telecom",
     location: "Delhi NCR",
     year: "2024",
@@ -78,6 +86,7 @@ export const projects = [
     slug: "fiber-backbone-express",
     title: "Intercity Fiber Backbone",
     image: p2,
+    images: Object.values(proj2Images),
     tag: "Fiber",
     location: "MP · UP · Bihar",
     year: "2023",
@@ -88,6 +97,7 @@ export const projects = [
     slug: "expressway-utility",
     title: "Expressway Utility Corridor",
     image: p3,
+    images: Object.values(proj3Images),
     tag: "Civil",
     location: "Maharashtra",
     year: "2024",
@@ -99,6 +109,7 @@ export const projects = [
     slug: "grid-substation-11kv",
     title: "11 KV Grid Substation",
     image: p4,
+    images: Object.values(proj4Images),
     tag: "Electrical",
     location: "Gujarat",
     year: "2023",

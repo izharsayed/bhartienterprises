@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { AboutSplit } from "@/components/sections/AboutSplit";
+import { DisciplinesGrid } from "@/components/sections/DisciplinesGrid";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Reveal, RevealItem, RevealStagger } from "@/components/ui/Reveal";
@@ -9,7 +10,7 @@ import { Award, Users2, Rocket, Handshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Bharti Enterprises" },
+      { title: "About Bharti Enterprises" },
       {
         name: "description",
         content:
@@ -29,7 +30,7 @@ const values = [
   {
     icon: Award,
     title: "Craftsmanship",
-    body: "We treat every splice, every foundation, every joint as if our name is on it — because it is.",
+    body: "We treat every splice, every foundation, every joint as if our name is on it because it is.",
   },
   {
     icon: Users2,
@@ -39,7 +40,7 @@ const values = [
   {
     icon: Rocket,
     title: "Speed with discipline",
-    body: "Aggressive timelines meet rigorous QHSE — never one at the cost of the other.",
+    body: "Aggressive timelines meet rigorous QHSE never one at the cost of the other.",
   },
   {
     icon: Handshake,
@@ -58,6 +59,8 @@ function About() {
       />
 
       <AboutSplit />
+
+      <DisciplinesGrid />
 
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">

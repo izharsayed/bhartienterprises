@@ -1,13 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Bharti Enterprises" },
+      { title: "Contact Bharti Enterprises" },
       {
         name: "description",
         content:
@@ -21,13 +20,12 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const [sent, setSent] = useState(false);
   return (
     <>
       <PageHeader
         eyebrow="Contact"
         title="Let's talk about your project."
-        sub="Tell us what you're building — we'll get back within one business day."
+        sub="Tell us what you're building we'll get back within one business day."
       />
 
       <section className="pb-24">
@@ -45,7 +43,7 @@ function Contact() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-white/50">Phone</div>
-                    <div className="mt-1 text-lg">+91 98xxx xxxxx</div>
+                    <div className="mt-1 text-lg">+91 8080669609</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -75,58 +73,24 @@ function Contact() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-              className="rounded-[32px] border border-border/60 bg-white p-8 sm:p-10"
-            >
+            <div className="flex h-full flex-col justify-center rounded-[32px] border border-border/60 bg-white p-8 sm:p-10">
               <h2 className="font-display text-3xl font-semibold text-[var(--brand)]">
-                Project enquiry
+                Chat with us on WhatsApp
               </h2>
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                <Field label="Full name" name="name" />
-                <Field label="Company" name="company" />
-                <Field label="Email" name="email" type="email" />
-                <Field label="Phone" name="phone" type="tel" />
-                <div className="sm:col-span-2">
-                  <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                    Service of interest
-                  </label>
-                  <select className="mt-2 h-12 w-full rounded-2xl border border-border bg-white px-4 text-sm outline-none transition focus:border-[var(--brand-blue)] focus:ring-4 focus:ring-[var(--brand-blue)]/10">
-                    <option>Telecom Infrastructure</option>
-                    <option>Fiber Network</option>
-                    <option>Civil Construction</option>
-                    <option>Electrical</option>
-                    <option>Engineering Services</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                    Tell us about the project
-                  </label>
-                  <textarea
-                    rows={5}
-                    className="mt-2 w-full resize-none rounded-2xl border border-border bg-white p-4 text-sm outline-none transition focus:border-[var(--brand-blue)] focus:ring-4 focus:ring-[var(--brand-blue)]/10"
-                    placeholder="Scope, geography, timeline, volume…"
-                  />
-                </div>
+              <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+                We have moved our contact channel to WhatsApp for faster and more direct communication. Tap the button below to start a conversation with our team right away.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="https://wa.me/918080669609"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[#25D366]/25 transition hover:-translate-y-0.5 hover:brightness-105"
+                >
+                  <MessageCircle className="h-5 w-5" /> Message on WhatsApp
+                </a>
               </div>
-              <button
-                type="submit"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[var(--brand)]/25 transition hover:-translate-y-0.5 hover:bg-[var(--brand-blue)]"
-              >
-                {sent ? (
-                  "Thanks — we&apos;ll be in touch"
-                ) : (
-                  <>
-                    Send enquiry <Send className="h-4 w-4" />
-                  </>
-                )}
-              </button>
-            </form>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -134,21 +98,3 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text" }) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
-      >
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        className="mt-2 h-12 w-full rounded-2xl border border-border bg-white px-4 text-sm outline-none transition focus:border-[var(--brand-blue)] focus:ring-4 focus:ring-[var(--brand-blue)]/10"
-      />
-    </div>
-  );
-}

@@ -24,7 +24,7 @@ export function CTA() {
                   <span className="text-gradient">Let&apos;s build it right.</span>
                 </h3>
                 <p className="mt-4 max-w-xl text-muted-foreground">
-                  Share your scope — we&apos;ll come back within one business day with a costed,
+                  Share your scope we&apos;ll come back within one business day with a costed,
                   timelined proposal from our senior engineering leadership.
                 </p>
               </div>

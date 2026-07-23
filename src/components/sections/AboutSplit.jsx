@@ -38,7 +38,7 @@ export function AboutSplit() {
           <Reveal delay={0.1}>
             <p className="mt-6 text-[17px] leading-relaxed text-muted-foreground">
               We combine deep domain skill in telecom, fiber, civil and electrical work with a
-              disciplined project management culture — so operators, OEMs and EPCs can scale
+              disciplined project management culture so operators, OEMs and EPCs can scale
               rollouts confidently, anywhere in the country.
             </p>
           </Reveal>
