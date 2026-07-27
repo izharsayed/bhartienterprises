@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function PageHeader({ eyebrow, title, sub, children }) {
   return (
-    <section className="relative overflow-hidden pt-40 pb-20">
+    <section aria-label={title || "Page header"} className="relative overflow-hidden pt-40 pb-20">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
       <div
         className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"

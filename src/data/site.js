@@ -1,11 +1,11 @@
-import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
+import p1 from "@/assets/project1/bharti-enterprises-infrastructure-project-1-image-1.jpeg";
+import p2 from "@/assets/project2/bharti-enterprises-infrastructure-project-2-image-1.jpeg";
 import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
 
 // Dynamic imports for the new layout
-const proj1Images = import.meta.glob("@/assets/projects/5g-rollout-north/*.jpg", { eager: true, import: 'default' });
-const proj2Images = import.meta.glob("@/assets/projects/fiber-backbone-express/*.jpg", { eager: true, import: 'default' });
+const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
+const proj2Images = import.meta.glob("@/assets/project2/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
 const proj3Images = import.meta.glob("@/assets/projects/expressway-utility/*.jpg", { eager: true, import: 'default' });
 const proj4Images = import.meta.glob("@/assets/projects/grid-substation-11kv/*.jpg", { eager: true, import: 'default' });
 
@@ -71,27 +71,27 @@ export const services = [
 
 export const projects = [
   {
-    slug: "5g-rollout-north",
-    title: "5G RAN Rollout North Zone",
+    slug: "school-labs-construction",
+    title: "Government School Lab Construction",
     image: p1,
     images: Object.values(proj1Images),
-    tag: "Telecom",
-    location: "Delhi NCR",
+    tag: "Civil",
+    location: "Dhargaon, Maharashtra",
     year: "2024",
-    progress: 92,
+    progress: 100,
     summary:
-      "Turnkey deployment of 320+ 5G sites including civil, tower erection, RAN installation and integration.",
+      "Construction of government school practical labs and computer labs, featuring material and cold room setups.",
   },
   {
-    slug: "fiber-backbone-express",
-    title: "Intercity Fiber Backbone",
+    slug: "school-ground-construction",
+    title: "Government School Ground Construction",
     image: p2,
     images: Object.values(proj2Images),
-    tag: "Fiber",
-    location: "MP · UP · Bihar",
-    year: "2023",
+    tag: "Civil",
+    location: "Bhingar, Ahmednagar, Maharashtra",
+    year: "2024",
     progress: 100,
-    summary: "1,240 KM of long-haul OFC with HDD, micro-trenching and 24×7 splicing crews.",
+    summary: "Construction and leveling of government school grounds to provide better sports and assembly facilities.",
   },
   {
     slug: "expressway-utility",

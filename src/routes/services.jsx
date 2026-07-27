@@ -5,18 +5,42 @@ import { CTA } from "@/components/sections/CTA";
 import { Reveal } from "@/components/ui/Reveal";
 import { CheckCircle2 } from "lucide-react";
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Bharti Enterprises Infrastructure Services",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Telecom Infrastructure", description: "End-to-end 4G/5G tower construction, RAN rollout, and site engineering." },
+    { "@type": "ListItem", position: 2, name: "Fiber Network (OFC / FTTH)", description: "OFC laying, blowing, splicing and last-mile FTTH — trenchless and open-cut." },
+    { "@type": "ListItem", position: 3, name: "Civil Construction", description: "Foundations, shelters, roads, bridges and turnkey civil packages." },
+    { "@type": "ListItem", position: 4, name: "Electrical", description: "HT/LT lines, substations, DG installations and electrification services." },
+    { "@type": "ListItem", position: 5, name: "Engineering Services", description: "Survey, design, project management and O&M for critical infrastructure." },
+    { "@type": "ListItem", position: 6, name: "Transportation", description: "Dedicated logistics with 25+ owned vehicles for material and equipment movement." },
+    { "@type": "ListItem", position: 7, name: "Labour Supply", description: "Skilled and semi-skilled workforce deployment across pan-India sites." },
+    { "@type": "ListItem", position: 8, name: "Outsourcing", description: "Managed services and staff augmentation for OEMs, operators and system integrators." },
+  ],
+};
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services Bharti Enterprises" },
+      { title: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
       {
         name: "description",
         content:
-          "Telecom, fiber, civil, electrical, engineering, transportation, labour supply and managed outsourcing services.",
+          "Bharti Enterprises offers end-to-end infrastructure services: telecom tower construction, OFC fiber network laying and splicing, FTTH installation, civil construction, HT/LT electrical work, engineering services, transportation logistics, labour supply, and managed outsourcing across India.",
       },
-      { property: "og:title", content: "Services Bharti Enterprises" },
-      { property: "og:description", content: "Eight capabilities. One accountable partner." },
+      {
+        name: "keywords",
+        content: "telecom tower construction, OFC laying India, OFC splicing services, FTTH installation contractor, civil construction company, electrical contractor India, HT LT line installation, engineering services India, labour supply contractor, managed outsourcing",
+      },
+      { property: "og:title", content: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
+      { property: "og:description", content: "Eight full-stack infrastructure capabilities: telecom, fiber OFC/FTTH, civil, electrical, engineering, transport, labour and managed outsourcing." },
+      { property: "og:url", content: "https://www.bhartienterprises.in/services" },
+      { name: "twitter:title", content: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
+      { name: "twitter:description", content: "Eight full-stack infrastructure capabilities: telecom, OFC fiber, civil, electrical, engineering, transport, labour and outsourcing." },
     ],
+    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/services" }],
   }),
   component: Services,
 });
@@ -47,6 +71,7 @@ const process = [
 function Services() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <PageHeader
         eyebrow="Services"
         title="Full-stack infrastructure execution."

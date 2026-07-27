@@ -35,7 +35,7 @@ export function ProjectCarousel({ hideHeader }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pb-20 pt-32">
+    <section aria-label="Featured projects portfolio" className="relative overflow-hidden bg-white pb-20 pt-32">
       {/* ── Editorial headline ── */}
       {!hideHeader ? (
         <div className="relative z-10 mx-auto max-w-[1400px] px-8 pb-16 text-center lg:px-14">
@@ -195,8 +195,9 @@ export function ProjectCarousel({ hideHeader }) {
                       </div>
                       
                       <Link
-                        to="/projects/$slug"
-                        params={{ slug: p.slug }}
+                        to="/projects"
+                        search={{ project: p.slug }}
+                        aria-label={`View details for ${p.title} project`}
                         className="pointer-events-auto group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[var(--brand)] transition-colors hover:bg-gray-100"
                       >
                         View Project

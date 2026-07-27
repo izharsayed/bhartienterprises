@@ -15,6 +15,42 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 
+const BASE = "https://www.bhartienterprises.in";
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${BASE}/#organization`,
+      name: "Bharti Enterprises",
+      url: BASE,
+      logo: `${BASE}/favicon.ico`,
+      description:
+        "Bharti Enterprises is an engineering-first infrastructure company delivering telecom tower construction, OFC fiber network laying and splicing, FTTH installation, civil construction, electrical substation work, engineering services, transportation, and labour supply across India.",
+      areaServed: "IN",
+      foundingDate: "2018",
+      numberOfEmployees: { "@type": "QuantitativeValue", minValue: 100 },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "hello@bhartienterprises.in",
+        telephone: "+91-8080669609",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE}/#website`,
+      url: BASE,
+      name: "Bharti Enterprises",
+      publisher: { "@id": `${BASE}/#organization` },
+      inLanguage: "en-IN",
+    },
+  ],
+};
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -27,6 +63,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
+            aria-label="Go back to Bharti Enterprises homepage"
             className="inline-flex items-center justify-center rounded-full bg-[var(--brand)] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[var(--brand-blue)]"
           >
             Go home
@@ -52,6 +89,7 @@ function ErrorComponent({ error, reset }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
+            aria-label="Try reloading the page"
             onClick={() => {
               router.invalidate();
               reset();
@@ -60,7 +98,11 @@ function ErrorComponent({ error, reset }) {
           >
             Try again
           </button>
-          <a href="/" className="rounded-full border border-input px-4 py-2 text-sm">
+          <a
+            href="/"
+            aria-label="Go back to Bharti Enterprises homepage"
+            className="rounded-full border border-input px-4 py-2 text-sm"
+          >
             Go home
           </a>
         </div>
@@ -74,37 +116,46 @@ export const Route = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure" },
+      { title: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India" },
       {
         name: "description",
         content:
-          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
+          "Bharti Enterprises is India's leading telecom infrastructure company specialising in OFC fiber network laying, FTTH installation, civil construction, electrical substations, and engineering services pan-India.",
       },
       { name: "author", content: "Bharti Enterprises" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "theme-color", content: "#0B1F3A" },
+      { name: "application-name", content: "Bharti Enterprises" },
+      { name: "geo.region", content: "IN" },
+      { name: "geo.placename", content: "India" },
+      { property: "og:site_name", content: "Bharti Enterprises" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:type", content: "website" },
       {
         property: "og:title",
-        content: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure",
+        content: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India",
       },
       {
         property: "og:description",
         content:
-          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Bharti Enterprises Telecom, Fiber & Civil Infrastructure",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Bharti Enterprises builds India's digital and civil backbone telecom towers, fiber networks, civil construction, electrical and engineering services delivered pan-India.",
+          "India's engineering-first partner for telecom towers, OFC fiber networks, civil construction, electrical and managed infrastructure services.",
       },
       {
         property: "og:image",
         content:
           "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/09953d9d-7fe3-43eb-87d8-793eec233dc9/id-preview-5031fd4d--76817cdc-c786-4053-aa60-283e2c3584ec.lovable.app-1784474468931.png",
+      },
+      { property: "og:url", content: BASE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@bhartienterprises" },
+      {
+        name: "twitter:title",
+        content: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "India's engineering-first partner for telecom towers, OFC fiber networks, civil construction, electrical and managed infrastructure services.",
       },
       {
         name: "twitter:image",
@@ -115,6 +166,8 @@ export const Route = createRootRouteWithContext()({
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
+      { rel: "manifest", href: "/manifest.json" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -131,9 +184,13 @@ export const Route = createRootRouteWithContext()({
 
 function RootShell({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
       </head>
       <body>
         {children}
@@ -149,7 +206,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ScrollProgress />
       <Navbar />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <Outlet />
       </main>
       <Footer />

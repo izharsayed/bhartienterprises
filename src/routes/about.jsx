@@ -10,18 +10,26 @@ import { Award, Users2, Rocket, Handshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Bharti Enterprises" },
+      { title: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
       {
         name: "description",
         content:
-          "Learn about Bharti Enterprises: mission, vision, values and the team executing India's infrastructure at scale.",
+          "Learn about Bharti Enterprises — India's engineering-first partner for telecom infrastructure, OFC fiber networks, civil construction, electrical and engineering services. Operating since 2018 across 14+ states with 100+ engineers.",
       },
-      { property: "og:title", content: "About Bharti Enterprises" },
+      {
+        name: "keywords",
+        content: "Bharti Enterprises about, infrastructure company India, telecom infrastructure company, engineering firm India, fiber network contractor, OFC splicing company",
+      },
+      { property: "og:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
       {
         property: "og:description",
-        content: "An engineering-first partner for India's critical infrastructure.",
+        content: "An engineering-first partner for India's critical infrastructure since 2018. 100+ engineers, 14+ states, zero-tolerance safety culture.",
       },
+      { property: "og:url", content: "https://www.bhartienterprises.in/about" },
+      { name: "twitter:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
+      { name: "twitter:description", content: "An engineering-first partner for India's critical telecom and civil infrastructure since 2018." },
     ],
+    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/about" }],
   }),
   component: About,
 });

@@ -102,6 +102,7 @@ export function Hero() {
           >
             <Link
               to="/services"
+              aria-label="Explore our infrastructure services"
               className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[var(--brand)]/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--brand)]/30"
             >
               Explore Services
@@ -109,6 +110,7 @@ export function Hero() {
             </Link>
             <Link
               to="/contact"
+              aria-label="Request a project quote"
               className="group inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/15 bg-white/80 px-6 py-3.5 text-sm font-medium text-[var(--brand)] backdrop-blur transition hover:border-[var(--brand)]/30"
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-[var(--brand-accent)] text-white">

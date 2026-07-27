@@ -4,7 +4,7 @@ import { nav } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="relative mt-32 overflow-hidden bg-[var(--brand)] text-white">
+    <footer role="contentinfo" aria-label="Site footer" className="relative mt-32 overflow-hidden bg-[var(--brand)] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
@@ -28,12 +28,12 @@ export function Footer() {
               specialist.
             </p>
             <div className="mt-8 space-y-3 text-sm text-white/80">
-              <div className="flex items-center gap-3">
+              <a href="tel:+918080669609" aria-label="Call Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
                 <Phone className="h-4 w-4 text-[var(--brand-accent)]" /> +91 8080669609
-              </div>
-              <div className="flex items-center gap-3">
+              </a>
+              <a href="mailto:hello@bhartienterprises.in" aria-label="Email Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
                 <Mail className="h-4 w-4 text-[var(--brand-accent)]" /> hello@bhartienterprises.in
-              </div>
+              </a>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-[var(--brand-accent)]" /> Corporate Office · India
               </div>
@@ -41,14 +41,15 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
               Explore
-            </div>
+            </h3>
             <ul className="mt-5 space-y-3">
               {nav.map((n) => (
                 <li key={n.to}>
                   <Link
                     to={n.to}
+                    aria-label={`Go to ${n.label} page`}
                     className="group inline-flex items-center gap-1 text-[15px] text-white/85 transition hover:text-white"
                   >
                     {n.label}
@@ -60,9 +61,9 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
               Capabilities
-            </div>
+            </h3>
             <ul className="mt-5 space-y-3 text-[15px] text-white/85">
               <li>Telecom Infrastructure</li>
               <li>Fiber Network (OFC/FTTH)</li>
@@ -74,14 +75,15 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
               Get in touch
-            </div>
+            </h3>
             <p className="mt-5 text-[15px] text-white/85">
               Have a project in mind? Let&apos;s build something enduring.
             </p>
             <Link
               to="/contact"
+              aria-label="Start a project with Bharti Enterprises"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--brand-accent)] px-5 py-3 text-sm font-medium text-white transition hover:brightness-110"
             >
               Start a Project <ArrowUpRight className="h-4 w-4" />

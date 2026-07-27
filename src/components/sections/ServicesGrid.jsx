@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 
 export function ServicesGrid() {
   return (
-    <section className="relative py-28">
+    <section aria-label="Our infrastructure services" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <Reveal>
@@ -23,6 +23,7 @@ export function ServicesGrid() {
           <Reveal delay={0.1}>
             <Link
               to="/services"
+              aria-label="View all infrastructure services"
               className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand)]/6 px-4 py-2 text-sm font-medium text-[var(--brand)] transition hover:bg-[var(--brand)] hover:text-white"
             >
               All services <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
