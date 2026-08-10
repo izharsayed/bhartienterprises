@@ -42,7 +42,7 @@ function Contact() {
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+91-9158077725",
-        email: "hello@bhartienterprises.in",
+        email: "bhartienterprises.tsp@gmail.com",
         contactType: "customer support",
         areaServed: "IN"
       }
@@ -83,7 +83,7 @@ function Contact() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-white/50">Email</div>
-                    <a href="mailto:hello@bhartienterprises.in" aria-label="Email Bharti Enterprises" className="mt-1 text-lg block">hello@bhartienterprises.in</a>
+                    <a href="mailto:bhartienterprises.tsp@gmail.com" aria-label="Email Bharti Enterprises" className="mt-1 text-lg block">bhartienterprises.tsp@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

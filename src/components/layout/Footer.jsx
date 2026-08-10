@@ -36,8 +36,8 @@ export function Footer() {
                   +91 ------9039
                 </a>
               </div>
-              <a href="mailto:hello@bhartienterprises.in" aria-label="Email Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
-                <Mail className="h-4 w-4 text-[var(--brand-accent)]" /> hello@bhartienterprises.in
+              <a href="mailto:bhartienterprises.tsp@gmail.com" aria-label="Email Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
+                <Mail className="h-4 w-4 text-[var(--brand-accent)]" /> bhartienterprises.tsp@gmail.com
               </a>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-[var(--brand-accent)]" /> Corporate Office · India

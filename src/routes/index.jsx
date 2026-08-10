@@ -16,7 +16,7 @@ const localBusinessSchema = {
     "India's leading telecom infrastructure, OFC fiber network, civil construction and electrical services company with operations across 14+ states.",
   url: "https://www.bhartienterprises.in",
   telephone: "+91-9158077725",
-  email: "hello@bhartienterprises.in",
+  email: "bhartienterprises.tsp@gmail.com",
   address: { "@type": "PostalAddress", addressCountry: "IN", addressRegion: "India" },
   geo: { "@type": "GeoCoordinates", latitude: "20.5937", longitude: "78.9629" },
   areaServed: { "@type": "Country", name: "India" },

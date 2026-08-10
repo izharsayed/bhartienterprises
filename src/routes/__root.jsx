@@ -34,7 +34,7 @@ const orgSchema = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "hello@bhartienterprises.in",
+        email: "bhartienterprises.tsp@gmail.com",
         telephone: "+91-9158077725",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi"],
