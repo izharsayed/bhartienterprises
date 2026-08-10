@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { projects } from "@/data/site";
 import { CTA } from "@/components/sections/CTA";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 export const Route = createFileRoute("/projects")({
   validateSearch: (search) => {
@@ -48,7 +48,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
   return (
     <div
       ref={ref}
-      className="group flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-center lg:justify-start lg:pl-[5vw]"
+      className="group flex flex-col lg:flex-row gap-6 lg:gap-12 items-start justify-center lg:justify-start lg:pl-[5vw] w-full"
     >
       {/* Left side details (Right Aligned on desktop) */}
       <div className="flex flex-col items-start lg:items-end gap-1 w-full lg:w-[200px] pt-2 lg:pt-8 flex-shrink-0 text-left lg:text-right">
@@ -64,8 +64,8 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
       <motion.div
         layout
         className={`relative ${isActive
-            ? 'w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4'
-            : 'h-[250px] lg:h-[350px] w-fit cursor-pointer overflow-hidden'
+            ? 'w-[100vw] -ml-8 px-8 sm:px-0 sm:ml-0 sm:w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide'
+            : 'w-full aspect-[4/3] sm:aspect-auto sm:h-[250px] lg:h-[350px] sm:w-fit cursor-pointer overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow duration-300'
           }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
@@ -79,34 +79,34 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
         <motion.div
           layout
           onClick={isActive ? onClose : onClick}
-          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl shadow-md ${isActive ? 'w-fit h-[300px] lg:h-[450px] snap-start' : 'w-fit h-full group-hover:shadow-xl transition-shadow duration-300'
+          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl ${isActive ? 'w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start' : 'w-full h-full'
             }`}
         >
           {project.image.includes('.mp4') ? (
             <motion.video
-              layout
+              layoutId={isActive ? undefined : `project-media-${project.slug}`}
               style={{ scale: isActive ? 1 : scale }}
               src={project.image}
               autoPlay
               loop
               muted
               playsInline
-              className={`h-full w-auto object-cover transition-transform duration-700 group-hover:scale-105`}
+              className="h-full w-full sm:w-auto object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
             <motion.img
-              layout
+              layoutId={isActive ? undefined : `project-media-${project.slug}`}
               style={{ scale: isActive ? 1 : scale }}
               src={project.image}
               alt={project.title}
               title={project.title}
               loading="lazy"
-              className={`h-full w-auto object-cover transition-transform duration-700 group-hover:scale-105`}
+              className="h-full w-full sm:w-auto object-cover transition-transform duration-700 group-hover:scale-105"
             />
           )}
         </motion.div>
 
-        {/* Gallery Images (fade in when active) */}
+        {/* Gallery Images (fade in when active on desktop) */}
         {isActive && project.images && project.images.map((img, i) => {
           const isVideo = img.includes('.mp4');
           return (
@@ -115,12 +115,12 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 + (i * 0.05), duration: 0.4 }}
-              className="flex-shrink-0 w-fit h-[300px] lg:h-[450px] snap-start overflow-hidden rounded-xl shadow-md relative group/item"
+              className="flex-shrink-0 w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl shadow-md relative group/item"
             >
               {isVideo ? (
-                <video src={img} autoPlay loop muted playsInline className="h-full w-auto object-cover" />
+                <video src={img} autoPlay loop muted playsInline className="h-full w-full sm:w-auto object-cover" />
               ) : (
-                <img src={img} alt={`${project.title} — project image ${i + 1}`} title={project.title} loading="lazy" className="h-full w-auto object-cover" />
+                <img src={img} alt={`${project.title} — project image ${i + 1}`} title={project.title} loading="lazy" className="h-full w-full sm:w-auto object-cover" />
               )}
             </motion.div>
           );
@@ -130,12 +130,10 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
   );
 }
 
-import { useEffect } from "react";
-
 function Projects() {
   const search = Route.useSearch();
   const [activeProject, setActiveProject] = useState(search.project || null);
-
+  
   useEffect(() => {
     if (search.project) {
       setActiveProject(search.project);
@@ -149,6 +147,29 @@ function Projects() {
       }, 100);
     }
   }, [search.project]);
+
+  // Close active project on vertical scroll
+  useEffect(() => {
+    if (!activeProject) return;
+
+    let initialScrollY = window.scrollY;
+    
+    const handleScroll = () => {
+      if (Math.abs(window.scrollY - initialScrollY) > 50) {
+        setActiveProject(null);
+      }
+    };
+
+    const timer = setTimeout(() => {
+      initialScrollY = window.scrollY;
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [activeProject]);
 
   return (
     <div className="bg-neutral-50 pt-32 min-h-screen">

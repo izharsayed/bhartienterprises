@@ -28,9 +28,14 @@ export function Footer() {
               specialist.
             </p>
             <div className="mt-8 space-y-3 text-sm text-white/80">
-              <a href="tel:+918080669609" aria-label="Call Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
-                <Phone className="h-4 w-4 text-[var(--brand-accent)]" /> +91 8080669609
-              </a>
+              <div className="flex flex-col gap-2">
+                <a href="tel:+919158077725" aria-label="Call Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
+                  <Phone className="h-4 w-4 text-[var(--brand-accent)]" /> +91 ------7725
+                </a>
+                <a href="tel:+917887909039" aria-label="Call Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit ml-7">
+                  +91 ------9039
+                </a>
+              </div>
               <a href="mailto:hello@bhartienterprises.in" aria-label="Email Bharti Enterprises" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
                 <Mail className="h-4 w-4 text-[var(--brand-accent)]" /> hello@bhartienterprises.in
               </a>

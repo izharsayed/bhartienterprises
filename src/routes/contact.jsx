@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const [showWaOptions, setShowWaOptions] = useState(false);
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -39,7 +41,7 @@ function Contact() {
       name: "Bharti Enterprises",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-8080669609",
+        telephone: "+91-9158077725",
         email: "hello@bhartienterprises.in",
         contactType: "customer support",
         areaServed: "IN"
@@ -66,16 +68,13 @@ function Contact() {
               </p>
               <div className="mt-10 space-y-5">
                 <div className="flex items-start gap-4">
-                  <a
-                    href="tel:+918080669609"
-                    aria-label="Call Bharti Enterprises"
-                    className="flex items-center gap-3"
-                  >
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white/10">
                     <Phone className="h-5 w-5" />
-                  </a>
+                  </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-white/50">Phone</div>
-                    <a href="tel:+918080669609" aria-label="Call Bharti Enterprises" className="mt-1 text-lg block">+91 8080669609</a>
+                    <a href="tel:+919158077725" aria-label="Call Bharti Enterprises" className="mt-1 text-lg block">+91 ------7725</a>
+                    <a href="tel:+917887909039" aria-label="Call Bharti Enterprises" className="mt-1 text-lg block">+91 ------9039</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -113,15 +112,33 @@ function Contact() {
                 We have moved our contact channel to WhatsApp for faster and more direct communication. Tap the button below to start a conversation with our team right away.
               </p>
               <div className="mt-8">
-                <a
-                  href="https://wa.me/918080669609"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Message Bharti Enterprises on WhatsApp"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[#25D366]/25 transition hover:-translate-y-0.5 hover:brightness-105"
-                >
-                  <MessageCircle className="h-5 w-5" /> Message on WhatsApp
-                </a>
+                {!showWaOptions ? (
+                  <button
+                    onClick={() => setShowWaOptions(true)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[#25D366]/25 transition hover:-translate-y-0.5 hover:brightness-105"
+                  >
+                    <MessageCircle className="h-5 w-5" /> Message on WhatsApp
+                  </button>
+                ) : (
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="https://wa.me/919158077725"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit items-center gap-2 rounded-full border border-border/60 bg-white px-6 py-3 text-sm font-medium transition hover:bg-gray-50 text-[var(--brand)]"
+                    >
+                      <MessageCircle className="h-5 w-5 text-[#25D366]" /> +91 ------7725
+                    </a>
+                    <a
+                      href="https://wa.me/917887909039"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit items-center gap-2 rounded-full border border-border/60 bg-white px-6 py-3 text-sm font-medium transition hover:bg-gray-50 text-[var(--brand)]"
+                    >
+                      <MessageCircle className="h-5 w-5 text-[#25D366]" /> +91 ------9039
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </Reveal>

@@ -10,24 +10,24 @@ import { Award, Users2, Rocket, Handshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
+      { title: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
       {
         name: "description",
         content:
-          "Learn about Bharti Enterprises — India's engineering-first partner for telecom infrastructure, OFC fiber networks, civil construction, electrical and engineering services. Operating since 2018 across 14+ states with 100+ engineers.",
+          "Learn about Bharti Enterprises — India's engineering-first partner for telecom infrastructure, OFC fiber networks, civil construction, electrical and engineering services. Operating since 2014 across 14+ states with 100+ engineers.",
       },
       {
         name: "keywords",
         content: "Bharti Enterprises about, infrastructure company India, telecom infrastructure company, engineering firm India, fiber network contractor, OFC splicing company",
       },
-      { property: "og:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
+      { property: "og:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
       {
         property: "og:description",
-        content: "An engineering-first partner for India's critical infrastructure since 2018. 100+ engineers, 14+ states, zero-tolerance safety culture.",
+        content: "An engineering-first partner for India's critical infrastructure since 2014. 100+ engineers, 14+ states, zero-tolerance safety culture.",
       },
       { property: "og:url", content: "https://www.bhartienterprises.in/about" },
-      { name: "twitter:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2018" },
-      { name: "twitter:description", content: "An engineering-first partner for India's critical telecom and civil infrastructure since 2018." },
+      { name: "twitter:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
+      { name: "twitter:description", content: "An engineering-first partner for India's critical telecom and civil infrastructure since 2014." },
     ],
     links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/about" }],
   }),
@@ -63,7 +63,7 @@ function About() {
       <PageHeader
         eyebrow="About"
         title="Engineering India's next chapter."
-        sub="Since 2018 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
+        sub="Since 2014 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
       />
 
       <AboutSplit />

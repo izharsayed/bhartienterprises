@@ -19,7 +19,7 @@ export function AboutSplit() {
           </div>
           <div className="glass absolute -bottom-8 left-6 rounded-2xl px-5 py-4 shadow-xl">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Since</div>
-            <div className="font-display text-3xl font-semibold text-[var(--brand)]">2018</div>
+            <div className="font-display text-3xl font-semibold text-[var(--brand)]">2014</div>
           </div>
         </Reveal>
 

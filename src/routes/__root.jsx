@@ -29,13 +29,13 @@ const orgSchema = {
       description:
         "Bharti Enterprises is an engineering-first infrastructure company delivering telecom tower construction, OFC fiber network laying and splicing, FTTH installation, civil construction, electrical substation work, engineering services, transportation, and labour supply across India.",
       areaServed: "IN",
-      foundingDate: "2018",
+      foundingDate: "2014",
       numberOfEmployees: { "@type": "QuantitativeValue", minValue: 100 },
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
         email: "hello@bhartienterprises.in",
-        telephone: "+91-8080669609",
+        telephone: "+91-9158077725",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi"],
       },

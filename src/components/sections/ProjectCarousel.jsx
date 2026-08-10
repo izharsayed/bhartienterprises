@@ -78,8 +78,8 @@ export function ProjectCarousel({ hideHeader }) {
         </div>
       )}
 
-      {/* ── Carousel ── */}
-      <div className="relative flex h-[30vw] min-h-[350px] max-h-[600px] items-center justify-center overflow-hidden">
+      {/* ── Desktop 3D Carousel ── */}
+      <div className="relative hidden md:flex h-[30vw] min-h-[350px] max-h-[600px] items-center justify-center overflow-hidden">
         {projects.map((p, i) => {
           const offset = getOffset(i);
           const isCenter = offset === 0;
@@ -210,6 +210,50 @@ export function ProjectCarousel({ hideHeader }) {
             </motion.div>
           );
         })}
+      </div>
+
+      {/* ── Mobile Snapping Carousel ── */}
+      <div 
+        className="flex md:hidden w-full overflow-x-auto snap-x snap-mandatory px-6 gap-4 pb-10 scrollbar-hide"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        <style>{`
+          .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+          }
+        `}</style>
+        {projects.map((p) => (
+          <div key={p.slug} className="w-[85vw] flex-shrink-0 snap-center relative rounded-2xl overflow-hidden shadow-lg h-[450px]">
+            <img src={p.image} className="w-full h-full object-cover" alt={p.title} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col items-start text-left text-white">
+              <div className="mb-3 rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest backdrop-blur-md">
+                {p.tag}
+              </div>
+              <h3 className="font-display text-2xl font-semibold leading-tight mb-3">
+                {p.title}
+              </h3>
+              <div className="flex items-center gap-4 text-xs text-white/90 mb-6">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {p.location}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5" />
+                  {p.year}
+                </span>
+              </div>
+              <Link
+                to="/projects"
+                search={{ project: p.slug }}
+                className="group flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-[var(--brand)] transition-colors hover:bg-gray-100"
+              >
+                View Project
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

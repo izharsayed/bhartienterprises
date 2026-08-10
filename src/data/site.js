@@ -1,13 +1,11 @@
 import p1 from "@/assets/project1/bharti-enterprises-infrastructure-project-1-image-1.jpeg";
 import p2 from "@/assets/project2/bharti-enterprises-infrastructure-project-2-image-1.jpeg";
-import p3 from "@/assets/project-3.jpg";
-import p4 from "@/assets/project-4.jpg";
+import p5 from "@/assets/project3/WhatsApp Image 2026-07-31 at 8.45.08 PM.jpeg";
 
 // Dynamic imports for the new layout
 const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
 const proj2Images = import.meta.glob("@/assets/project2/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
-const proj3Images = import.meta.glob("@/assets/projects/expressway-utility/*.jpg", { eager: true, import: 'default' });
-const proj4Images = import.meta.glob("@/assets/projects/grid-substation-11kv/*.jpg", { eager: true, import: 'default' });
+const proj3FolderImages = import.meta.glob("@/assets/project3/*.{jpeg,jpg,png,mp4}", { eager: true, import: 'default' });
 
 import { Radio, Cable, Building2, Zap, Wrench, Truck, Users, Briefcase } from "lucide-react";
 
@@ -20,7 +18,7 @@ export const nav = [
 ];
 
 export const stats = [
-  { value: 8, suffix: "+", label: "Years of Excellence" },
+  { value: 12, suffix: "+", label: "Years of Excellence" },
   { value: 150, suffix: "+", label: "Projects Delivered" },
   { value: 100, suffix: "+", label: "Engineers on Ground" },
   { value: 25, suffix: "+", label: "Fleet Vehicles" },
@@ -94,27 +92,15 @@ export const projects = [
     summary: "Construction and leveling of government school grounds to provide better sports and assembly facilities.",
   },
   {
-    slug: "expressway-utility",
-    title: "Expressway Utility Corridor",
-    image: p3,
-    images: Object.values(proj3Images),
+    slug: "pipeline-infrastructure",
+    title: "Pipeline Infrastructure Project",
+    image: p5,
+    images: Object.values(proj3FolderImages),
     tag: "Civil",
-    location: "Maharashtra",
+    location: "India",
     year: "2024",
-    progress: 78,
-    summary:
-      "Utility ducting, service roads and cross-drainage for a 210 KM greenfield expressway.",
-  },
-  {
-    slug: "grid-substation-11kv",
-    title: "11 KV Grid Substation",
-    image: p4,
-    images: Object.values(proj4Images),
-    tag: "Electrical",
-    location: "Gujarat",
-    year: "2023",
     progress: 100,
-    summary: "Design-build of substation, transformer bay and 46 KM of associated HT lines.",
+    summary: "Complete pipeline infrastructure setup and deployment including related works.",
   },
 ];
 

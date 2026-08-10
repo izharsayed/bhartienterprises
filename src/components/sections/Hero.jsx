@@ -70,7 +70,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-accent)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-accent)]" />
             </span>
-            Trusted since 2018 · Pan-India Deployment
+            Trusted since 2014 · Pan-India Deployment
           </motion.div>
 
           <motion.h1

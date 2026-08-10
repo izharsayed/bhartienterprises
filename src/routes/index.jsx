@@ -15,13 +15,13 @@ const localBusinessSchema = {
   description:
     "India's leading telecom infrastructure, OFC fiber network, civil construction and electrical services company with operations across 14+ states.",
   url: "https://www.bhartienterprises.in",
-  telephone: "+91-8080669609",
+  telephone: "+91-9158077725",
   email: "hello@bhartienterprises.in",
   address: { "@type": "PostalAddress", addressCountry: "IN", addressRegion: "India" },
   geo: { "@type": "GeoCoordinates", latitude: "20.5937", longitude: "78.9629" },
   areaServed: { "@type": "Country", name: "India" },
   openingHours: "Mo-Sa 09:00-18:00",
-  foundingDate: "2018",
+  foundingDate: "2014",
 };
 
 export const Route = createFileRoute("/")({
