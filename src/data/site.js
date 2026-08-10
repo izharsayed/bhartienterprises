@@ -1,7 +1,12 @@
-import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
-import p3 from "@/assets/project-3.jpg";
-import p4 from "@/assets/project-4.jpg";
+import p1 from "@/assets/project1/bharti-enterprises-infrastructure-project-1-image-1.jpeg";
+import p2 from "@/assets/project2/bharti-enterprises-infrastructure-project-2-image-1.jpeg";
+import p5 from "@/assets/project3/WhatsApp Image 2026-07-31 at 8.45.08 PM.jpeg";
+
+// Dynamic imports for the new layout
+const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
+const proj2Images = import.meta.glob("@/assets/project2/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
+const proj3FolderImages = import.meta.glob("@/assets/project3/*.{jpeg,jpg,png,mp4}", { eager: true, import: 'default' });
+
 import { Radio, Cable, Building2, Zap, Wrench, Truck, Users, Briefcase } from "lucide-react";
 
 export const nav = [
@@ -13,7 +18,7 @@ export const nav = [
 ];
 
 export const stats = [
-  { value: 8, suffix: "+", label: "Years of Excellence" },
+  { value: 12, suffix: "+", label: "Years of Excellence" },
   { value: 150, suffix: "+", label: "Projects Delivered" },
   { value: 100, suffix: "+", label: "Engineers on Ground" },
   { value: 25, suffix: "+", label: "Fleet Vehicles" },
@@ -28,7 +33,7 @@ export const services = [
   {
     icon: Cable,
     title: "Fiber Network",
-    desc: "OFC laying, blowing, splicing and last-mile FTTH — trenchless and open-cut expertise.",
+    desc: "OFC laying, blowing, splicing and last-mile FTTH trenchless and open-cut expertise.",
   },
   {
     icon: Building2,
@@ -64,46 +69,38 @@ export const services = [
 
 export const projects = [
   {
-    slug: "5g-rollout-north",
-    title: "5G RAN Rollout — North Zone",
+    slug: "school-labs-construction",
+    title: "Government School Lab Construction",
     image: p1,
-    tag: "Telecom",
-    location: "Delhi NCR",
-    year: "2024",
-    progress: 92,
-    summary:
-      "Turnkey deployment of 320+ 5G sites including civil, tower erection, RAN installation and integration.",
-  },
-  {
-    slug: "fiber-backbone-express",
-    title: "Intercity Fiber Backbone",
-    image: p2,
-    tag: "Fiber",
-    location: "MP · UP · Bihar",
-    year: "2023",
-    progress: 100,
-    summary: "1,240 KM of long-haul OFC with HDD, micro-trenching and 24×7 splicing crews.",
-  },
-  {
-    slug: "expressway-utility",
-    title: "Expressway Utility Corridor",
-    image: p3,
+    images: Object.values(proj1Images),
     tag: "Civil",
-    location: "Maharashtra",
+    location: "Dhargaon, Maharashtra",
     year: "2024",
-    progress: 78,
+    progress: 100,
     summary:
-      "Utility ducting, service roads and cross-drainage for a 210 KM greenfield expressway.",
+      "Construction of government school practical labs and computer labs, featuring material and cold room setups.",
   },
   {
-    slug: "grid-substation-11kv",
-    title: "11 KV Grid Substation",
-    image: p4,
-    tag: "Electrical",
-    location: "Gujarat",
-    year: "2023",
+    slug: "school-ground-construction",
+    title: "Government School Ground Construction",
+    image: p2,
+    images: Object.values(proj2Images),
+    tag: "Civil",
+    location: "Bhingar, Ahmednagar, Maharashtra",
+    year: "2024",
     progress: 100,
-    summary: "Design-build of substation, transformer bay and 46 KM of associated HT lines.",
+    summary: "Construction and leveling of government school grounds to provide better sports and assembly facilities.",
+  },
+  {
+    slug: "pipeline-infrastructure",
+    title: "Pipeline Infrastructure Project",
+    image: p5,
+    images: Object.values(proj3FolderImages),
+    tag: "Civil",
+    location: "India",
+    year: "2024",
+    progress: 100,
+    summary: "Complete pipeline infrastructure setup and deployment including related works.",
   },
 ];
 

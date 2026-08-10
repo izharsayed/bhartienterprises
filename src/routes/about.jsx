@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { AboutSplit } from "@/components/sections/AboutSplit";
+import { DisciplinesGrid } from "@/components/sections/DisciplinesGrid";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Reveal, RevealItem, RevealStagger } from "@/components/ui/Reveal";
@@ -9,18 +10,26 @@ import { Award, Users2, Rocket, Handshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Bharti Enterprises" },
+      { title: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
       {
         name: "description",
         content:
-          "Learn about Bharti Enterprises: mission, vision, values and the team executing India's infrastructure at scale.",
+          "Learn about Bharti Enterprises — India's engineering-first partner for telecom infrastructure, OFC fiber networks, civil construction, electrical and engineering services. Operating since 2014 across 14+ states with 100+ engineers.",
       },
-      { property: "og:title", content: "About Bharti Enterprises" },
+      {
+        name: "keywords",
+        content: "Bharti Enterprises about, infrastructure company India, telecom infrastructure company, engineering firm India, fiber network contractor, OFC splicing company",
+      },
+      { property: "og:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
       {
         property: "og:description",
-        content: "An engineering-first partner for India's critical infrastructure.",
+        content: "An engineering-first partner for India's critical infrastructure since 2014. 100+ engineers, 14+ states, zero-tolerance safety culture.",
       },
+      { property: "og:url", content: "https://www.bhartienterprises.in/about" },
+      { name: "twitter:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
+      { name: "twitter:description", content: "An engineering-first partner for India's critical telecom and civil infrastructure since 2014." },
     ],
+    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/about" }],
   }),
   component: About,
 });
@@ -29,7 +38,7 @@ const values = [
   {
     icon: Award,
     title: "Craftsmanship",
-    body: "We treat every splice, every foundation, every joint as if our name is on it — because it is.",
+    body: "We treat every splice, every foundation, every joint as if our name is on it because it is.",
   },
   {
     icon: Users2,
@@ -39,7 +48,7 @@ const values = [
   {
     icon: Rocket,
     title: "Speed with discipline",
-    body: "Aggressive timelines meet rigorous QHSE — never one at the cost of the other.",
+    body: "Aggressive timelines meet rigorous QHSE never one at the cost of the other.",
   },
   {
     icon: Handshake,
@@ -54,10 +63,12 @@ function About() {
       <PageHeader
         eyebrow="About"
         title="Engineering India's next chapter."
-        sub="Since 2018 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
+        sub="Since 2014 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
       />
 
       <AboutSplit />
+
+      <DisciplinesGrid />
 
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">

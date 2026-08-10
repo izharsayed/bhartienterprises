@@ -70,7 +70,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-accent)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-accent)]" />
             </span>
-            Trusted since 2018 · Pan-India Deployment
+            Trusted since 2014 · Pan-India Deployment
           </motion.div>
 
           <motion.h1
@@ -90,7 +90,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            From telecom towers to fiber deployment and civil engineering — comprehensive
+            From telecom towers to fiber deployment and civil engineering comprehensive
             infrastructure solutions by a team of 100+ specialists nationwide.
           </motion.p>
 
@@ -102,6 +102,7 @@ export function Hero() {
           >
             <Link
               to="/services"
+              aria-label="Explore our infrastructure services"
               className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[var(--brand)]/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--brand)]/30"
             >
               Explore Services
@@ -109,6 +110,7 @@ export function Hero() {
             </Link>
             <Link
               to="/contact"
+              aria-label="Request a project quote"
               className="group inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/15 bg-white/80 px-6 py-3.5 text-sm font-medium text-[var(--brand)] backdrop-blur transition hover:border-[var(--brand)]/30"
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-[var(--brand-accent)] text-white">

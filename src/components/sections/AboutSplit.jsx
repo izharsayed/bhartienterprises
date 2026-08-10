@@ -19,7 +19,7 @@ export function AboutSplit() {
           </div>
           <div className="glass absolute -bottom-8 left-6 rounded-2xl px-5 py-4 shadow-xl">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Since</div>
-            <div className="font-display text-3xl font-semibold text-[var(--brand)]">2018</div>
+            <div className="font-display text-3xl font-semibold text-[var(--brand)]">2014</div>
           </div>
         </Reveal>
 
@@ -38,7 +38,7 @@ export function AboutSplit() {
           <Reveal delay={0.1}>
             <p className="mt-6 text-[17px] leading-relaxed text-muted-foreground">
               We combine deep domain skill in telecom, fiber, civil and electrical work with a
-              disciplined project management culture — so operators, OEMs and EPCs can scale
+              disciplined project management culture so operators, OEMs and EPCs can scale
               rollouts confidently, anywhere in the country.
             </p>
           </Reveal>

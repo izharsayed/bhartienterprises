@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CTA() {
   return (
-    <section className="relative py-24">
+    <section aria-label="Call to action" className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="relative overflow-hidden rounded-[32px] border border-border/60 bg-white p-10 sm:p-16">
@@ -24,19 +24,21 @@ export function CTA() {
                   <span className="text-gradient">Let&apos;s build it right.</span>
                 </h3>
                 <p className="mt-4 max-w-xl text-muted-foreground">
-                  Share your scope — we&apos;ll come back within one business day with a costed,
+                  Share your scope we&apos;ll come back within one business day with a costed,
                   timelined proposal from our senior engineering leadership.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
                 <Link
                   to="/contact"
+                  aria-label="Start a new project with us"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[var(--brand)]/25 transition hover:-translate-y-0.5"
                 >
                   Start a project <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/projects"
+                  aria-label="View our project portfolio"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm font-medium text-[var(--brand)] hover:bg-[var(--brand)]/5"
                 >
                   See our work

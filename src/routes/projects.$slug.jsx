@@ -16,17 +16,35 @@ export const Route = createFileRoute("/projects/$slug")({
       ? [
           { title: `${loaderData.project.title} — Bharti Enterprises` },
           { name: "description", content: loaderData.project.summary },
-          { property: "og:title", content: loaderData.project.title },
+          { name: "robots", content: "index, follow" },
+          { property: "og:title", content: `${loaderData.project.title} | Bharti Enterprises` },
           { property: "og:description", content: loaderData.project.summary },
           { property: "og:image", content: loaderData.project.image },
+          { property: "og:type", content: "article" },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:title", content: `${loaderData.project.title} | Bharti Enterprises` },
+          { name: "twitter:description", content: loaderData.project.summary },
+          { name: "twitter:image", content: loaderData.project.image },
         ]
       : [{ title: "Project not found" }, { name: "robots", content: "noindex" }],
+    links: loaderData
+      ? [{ rel: "canonical", href: `https://www.bhartienterprises.in/projects/${loaderData.project.slug}` }]
+      : [],
   }),
   component: ProjectDetail,
 });
 
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.bhartienterprises.in/" },
+      { "@type": "ListItem", position: 2, name: "Projects", item: "https://www.bhartienterprises.in/projects" },
+      { "@type": "ListItem", position: 3, name: project.title, item: `https://www.bhartienterprises.in/projects/${project.slug}` },
+    ],
+  };
   const highlights = [
     "Turnkey design-build execution",
     "Dedicated project management office",
@@ -37,10 +55,12 @@ function ProjectDetail() {
   ];
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="relative pt-32">
         <div className="mx-auto max-w-7xl px-6">
           <Link
             to="/projects"
+            aria-label="Back to all Bharti Enterprises projects"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-[var(--brand)]"
           >
             <ArrowLeft className="h-4 w-4" /> All projects
@@ -75,6 +95,10 @@ function ProjectDetail() {
             <img
               src={project.image}
               alt={project.title}
+              title={project.title}
+              loading="eager"
+              width={1400}
+              height={520}
               className="h-[520px] w-full object-cover"
             />
           </motion.div>

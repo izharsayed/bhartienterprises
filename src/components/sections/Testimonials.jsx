@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 export function Testimonials() {
   const row = [...testimonials, ...testimonials];
   return (
-    <section className="relative overflow-hidden py-28">
+    <section aria-label="Client testimonials" className="relative overflow-hidden py-28">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="max-w-2xl">

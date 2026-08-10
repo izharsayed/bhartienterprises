@@ -32,7 +32,7 @@ export function Navbar() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link to="/" className="flex items-center gap-2.5 shrink-0">
+        <Link to="/" aria-label="Bharti Enterprises — Homepage" className="flex items-center gap-2.5 shrink-0">
           <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[var(--brand)] to-[var(--brand-blue)] text-white shadow-lg shadow-[var(--brand-blue)]/25">
             <span className="font-display text-sm font-bold">BE</span>
           </div>
@@ -46,7 +46,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
             const active = pathname === item.to;
             return (
@@ -71,12 +71,14 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
+            aria-label="Request a project quote from Bharti Enterprises"
             className="hidden items-center gap-1.5 rounded-full bg-[var(--brand)] px-4 py-2 text-sm font-medium text-white transition hover:bg-[var(--brand-blue)] hover:shadow-lg hover:shadow-[var(--brand-blue)]/30 sm:inline-flex"
           >
             Request Quote <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <button
             aria-label="Toggle menu"
+            aria-expanded={open}
             className="grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-white/70 lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
@@ -91,6 +93,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
+            aria-label="Mobile navigation menu"
             className="glass absolute left-3 right-3 top-20 rounded-3xl border border-white/60 p-4 shadow-2xl lg:hidden"
           >
             <div className="grid gap-1">
