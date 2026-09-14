@@ -10,26 +10,28 @@ import { Award, Users2, Rocket, Handshake } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
+      { title: "About Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in" },
       {
         name: "description",
         content:
-          "Learn about Bharti Enterprises — India's engineering-first partner for telecom infrastructure, OFC fiber networks, civil construction, electrical and engineering services. Operating since 2014 across 14+ states with 100+ engineers.",
+          "Learn about Bharti Enterprises (bhartientreprise.in) — a growing construction company committed to delivering reliable, high-quality civil infrastructure, industrial sheds, and roads across India.",
       },
       {
         name: "keywords",
-        content: "Bharti Enterprises about, infrastructure company India, telecom infrastructure company, engineering firm India, fiber network contractor, OFC splicing company",
+        content:
+          "Bharti Enterprises about, bhartientreprise.in, Bharti Entreprise Ahmednagar, construction company Maharashtra, civil construction contractor, infrastructure solutions India",
       },
-      { property: "og:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
+      { property: "og:title", content: "About Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in" },
       {
         property: "og:description",
-        content: "An engineering-first partner for India's critical infrastructure since 2014. 100+ engineers, 14+ states, zero-tolerance safety culture.",
+        content:
+          "Building Stronger Tomorrow. Quality construction, reliable solutions, and lasting values from vision to reality.",
       },
-      { property: "og:url", content: "https://www.bhartienterprises.in/about" },
-      { name: "twitter:title", content: "About Bharti Enterprises — Infrastructure Engineering Company Since 2014" },
-      { name: "twitter:description", content: "An engineering-first partner for India's critical telecom and civil infrastructure since 2014." },
+      { property: "og:url", content: "https://bhartientreprise.in/about" },
+      { name: "twitter:title", content: "About Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in" },
+      { name: "twitter:description", content: "Learn about Bharti Enterprises (bhartientreprise.in) — building stronger tomorrow with reliable construction solutions." },
     ],
-    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/about" }],
+    links: [{ rel: "canonical", href: "https://bhartientreprise.in/about" }],
   }),
   component: About,
 });
@@ -37,23 +39,23 @@ export const Route = createFileRoute("/about")({
 const values = [
   {
     icon: Award,
-    title: "Craftsmanship",
-    body: "We treat every splice, every foundation, every joint as if our name is on it because it is.",
+    title: "Quality Construction",
+    body: "Delivering strong, reliable, and high-quality construction solutions designed for long-term performance.",
   },
   {
     icon: Users2,
-    title: "People-first",
-    body: "Our field teams are trained, insured and equipped to global safety standards.",
+    title: "Safety in Every Step",
+    body: "Proper planning, safety instructions, and clear coordination to ensure smooth and secure site operations.",
   },
   {
     icon: Rocket,
-    title: "Speed with discipline",
-    body: "Aggressive timelines meet rigorous QHSE never one at the cost of the other.",
+    title: "Timely Execution",
+    body: "Efficient planning and dedicated project management to complete every project on schedule with precision.",
   },
   {
     icon: Handshake,
-    title: "Long partnerships",
-    body: "80% of our revenue comes from clients we&apos;ve served for 3+ years.",
+    title: "Lasting Values",
+    body: "Building strong and lasting business relationships through transparency, commitment, and client satisfaction.",
   },
 ];
 
@@ -61,9 +63,9 @@ function About() {
   return (
     <>
       <PageHeader
-        eyebrow="About"
-        title="Engineering India's next chapter."
-        sub="Since 2014 we've grown from a two-tower crew to a 100+ engineer organisation trusted by India's largest telecom, energy and infrastructure companies."
+        eyebrow="About Us"
+        title="Building Stronger Tomorrow."
+        sub="Quality Construction · Reliable Solutions · Lasting Values. From vision to reality with experienced professionals and modern execution."
       />
 
       <AboutSplit />
@@ -74,7 +76,7 @@ function About() {
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <h2 className="max-w-3xl font-display text-4xl font-semibold text-[var(--brand)] sm:text-5xl">
-              The values that hold up every <span className="text-gradient">tower we build.</span>
+              The core principles behind <span className="text-gradient">every project.</span>
             </h2>
           </Reveal>
           <RevealStagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">

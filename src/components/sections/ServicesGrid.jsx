@@ -11,12 +11,12 @@ export function ServicesGrid() {
           <Reveal>
             <div className="max-w-2xl">
               <div className="inline-flex rounded-full border border-[var(--brand)]/10 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-[var(--brand)]">
-                What we do
+                Our Services
               </div>
               <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-[var(--brand)] sm:text-5xl">
-                Eight capabilities.
+                Comprehensive Solutions.
                 <br />
-                <span className="text-gradient">One accountable partner.</span>
+                <span className="text-gradient">From Vision to Reality.</span>
               </h2>
             </div>
           </Reveal>

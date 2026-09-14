@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { nav } from "@/data/site";
 import { cn } from "@/lib/utils";
+import logo1 from "@/assets/logo1.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,9 +34,11 @@ export function Navbar() {
         )}
       >
         <Link to="/" aria-label="Bharti Enterprises — Homepage" className="flex items-center gap-2.5 shrink-0">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[var(--brand)] to-[var(--brand-blue)] text-white shadow-lg shadow-[var(--brand-blue)]/25">
-            <span className="font-display text-sm font-bold">BE</span>
-          </div>
+          <img
+            src={logo1}
+            alt="Bharti Enterprises"
+            className="h-10 w-auto object-contain"
+          />
           <div className="leading-tight">
             <div className="font-display text-[15px] font-semibold text-[var(--brand)]">
               Bharti Enterprises

@@ -15,36 +15,67 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 
-const BASE = "https://www.bhartienterprises.in";
+const BASE = "https://bhartientreprise.in";
 
 const orgSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "GeneralContractor", "ConstructionBusiness"],
       "@id": `${BASE}/#organization`,
       name: "Bharti Enterprises",
+      alternateName: [
+        "Bharti Entreprise",
+        "bhartientreprise.in",
+        "Bharti Enterprises Ahmednagar",
+        "Bharti Enterprises Construction",
+        "Bharti Enterprises Infrastructure",
+      ],
+      legalName: "Bharti Enterprises",
+      taxID: "27BWIPS4029L1ZZ",
       url: BASE,
-      logo: `${BASE}/favicon.ico`,
+      logo: `${BASE}/favicon.svg`,
+      image: `${BASE}/favicon.svg`,
       description:
-        "Bharti Enterprises is an engineering-first infrastructure company delivering telecom tower construction, OFC fiber network laying and splicing, FTTH installation, civil construction, electrical substation work, engineering services, transportation, and labour supply across India.",
-      areaServed: "IN",
+        "Bharti Enterprises (bhartientreprise.in) is a premier civil construction and infrastructure company in Ahmednagar, Maharashtra. Specializing in residential & commercial construction, industrial sheds, earthwork, foundations, RCC structures, roads, and pipeline works.",
+      telephone: "+91-8799859344",
+      email: "Bhartienterprises.tsp@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "NIL, Dargah Dayra, Ahmadnagar",
+        addressLocality: "Ahmednagar",
+        addressRegion: "Maharashtra",
+        postalCode: "414001",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 19.0952,
+        longitude: 74.748,
+      },
+      areaServed: [
+        { "@type": "City", name: "Ahmednagar" },
+        { "@type": "State", name: "Maharashtra" },
+        { "@type": "Country", name: "India" },
+      ],
       foundingDate: "2014",
       numberOfEmployees: { "@type": "QuantitativeValue", minValue: 100 },
       contactPoint: {
         "@type": "ContactPoint",
-        contactType: "sales",
-        email: "bhartienterprises.tsp@gmail.com",
-        telephone: "+91-9158077725",
+        contactType: "customer service",
+        email: "Bhartienterprises.tsp@gmail.com",
+        telephone: "+91-8799859344",
         areaServed: "IN",
-        availableLanguage: ["English", "Hindi"],
+        availableLanguage: ["English", "Hindi", "Marathi"],
       },
+      sameAs: [BASE, "https://bhartientreprise.in"],
     },
     {
       "@type": "WebSite",
       "@id": `${BASE}/#website`,
       url: BASE,
       name: "Bharti Enterprises",
+      alternateName: "bhartientreprise.in",
       publisher: { "@id": `${BASE}/#organization` },
       inLanguage: "en-IN",
     },
@@ -116,29 +147,36 @@ export const Route = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India" },
+      { title: "Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in" },
       {
         name: "description",
         content:
-          "Bharti Enterprises is India's leading telecom infrastructure company specialising in OFC fiber network laying, FTTH installation, civil construction, electrical substations, and engineering services pan-India.",
+          "Official website of Bharti Enterprises (bhartientreprise.in). Leading construction and infrastructure solutions: civil works, industrial sheds, road works, foundations, RCC structures, and pipelines in Ahmednagar, Maharashtra & across India.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Bharti Enterprises, bhartientreprise.in, Bharti Entreprise, Bharti Enterprises Ahmednagar, Bharti Enterprises Maharashtra, civil construction company India, industrial shed construction, road contractor Ahmednagar, pipeline laying contractor, infrastructure company India",
       },
       { name: "author", content: "Bharti Enterprises" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "theme-color", content: "#0B1F3A" },
       { name: "application-name", content: "Bharti Enterprises" },
-      { name: "geo.region", content: "IN" },
-      { name: "geo.placename", content: "India" },
+      { name: "geo.region", content: "IN-MH" },
+      { name: "geo.placename", content: "Ahmednagar, Maharashtra, India" },
+      { name: "geo.position", content: "19.0952;74.7480" },
+      { name: "ICBM", content: "19.0952, 74.7480" },
       { property: "og:site_name", content: "Bharti Enterprises" },
       { property: "og:locale", content: "en_IN" },
       { property: "og:type", content: "website" },
       {
         property: "og:title",
-        content: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India",
+        content: "Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in",
       },
       {
         property: "og:description",
         content:
-          "India's engineering-first partner for telecom towers, OFC fiber networks, civil construction, electrical and managed infrastructure services.",
+          "Official website of Bharti Enterprises (bhartientreprise.in). Quality construction, industrial sheds, civil works, roads, foundations, and pipelines across India.",
       },
       {
         property: "og:image",
@@ -150,12 +188,12 @@ export const Route = createRootRouteWithContext()({
       { name: "twitter:site", content: "@bhartienterprises" },
       {
         name: "twitter:title",
-        content: "Bharti Enterprises — Telecom Infrastructure & Fiber Network Company India",
+        content: "Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in",
       },
       {
         name: "twitter:description",
         content:
-          "India's engineering-first partner for telecom towers, OFC fiber networks, civil construction, electrical and managed infrastructure services.",
+          "Official website of Bharti Enterprises (bhartientreprise.in). Delivering reliable, high-quality infrastructure and construction solutions across India.",
       },
       {
         name: "twitter:image",
@@ -164,10 +202,12 @@ export const Route = createRootRouteWithContext()({
       },
     ],
     links: [
+      { rel: "canonical", href: BASE },
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/logo1.png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/logo1.png" },
       { rel: "manifest", href: "/manifest.json" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

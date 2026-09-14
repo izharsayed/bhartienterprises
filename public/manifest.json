@@ -1,7 +1,12 @@
 {
-  "short_name": "Bharti Ent.",
-  "name": "Bharti Enterprises — Telecom & Infrastructure",
+  "short_name": "Bharti Enterprises",
+  "name": "Bharti Enterprises — Construction & Infrastructure",
   "icons": [
+    {
+      "src": "logo1.png",
+      "sizes": "621x402",
+      "type": "image/png"
+    },
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",

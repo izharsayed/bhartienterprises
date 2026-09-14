@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { projects } from "@/data/site";
 import { CTA } from "@/components/sections/CTA";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import logo1 from "@/assets/logo1.png";
 
 export const Route = createFileRoute("/projects")({
   validateSearch: (search) => {
@@ -12,23 +13,23 @@ export const Route = createFileRoute("/projects")({
   },
   head: () => ({
     meta: [
-      { title: "Infrastructure Projects Portfolio — Telecom, Fiber, Civil & Electrical | Bharti Enterprises" },
+      { title: "Projects Portfolio — Bharti Enterprises | bhartientreprise.in" },
       {
         name: "description",
         content:
-          "Explore Bharti Enterprises' portfolio of 150+ infrastructure projects across India: 5G RAN rollouts, intercity OFC fiber networks, expressway civil construction, and 11kV electrical substations.",
+          "Explore completed and ongoing construction projects by Bharti Enterprises (bhartientreprise.in): school labs, grounds, industrial sheds, civil works, and pipeline infrastructure.",
       },
       {
         name: "keywords",
-        content: "telecom infrastructure projects India, fiber network projects, OFC project India, 5G rollout contractor, civil construction projects, electrical substation project",
+        content: "Bharti Enterprises projects, bhartientreprise.in portfolio, civil construction projects, school ground construction Ahmednagar, pipeline projects Maharashtra",
       },
-      { property: "og:title", content: "Infrastructure Projects Portfolio — Telecom, Fiber, Civil & Electrical | Bharti Enterprises" },
-      { property: "og:description", content: "Portfolio of 150+ infrastructure projects: 5G RAN, OFC fiber, civil construction and electrical across India." },
-      { property: "og:url", content: "https://www.bhartienterprises.in/projects" },
-      { name: "twitter:title", content: "Infrastructure Projects Portfolio | Bharti Enterprises" },
-      { name: "twitter:description", content: "Portfolio of 150+ infrastructure projects across India: telecom, OFC fiber, civil and electrical." },
+      { property: "og:title", content: "Projects Portfolio — Bharti Enterprises | bhartientreprise.in" },
+      { property: "og:description", content: "Portfolio of construction and infrastructure projects delivered by Bharti Enterprises across India." },
+      { property: "og:url", content: "https://bhartientreprise.in/projects" },
+      { name: "twitter:title", content: "Projects Portfolio — Bharti Enterprises | bhartientreprise.in" },
+      { name: "twitter:description", content: "Portfolio of construction and infrastructure projects delivered by Bharti Enterprises across India." },
     ],
-    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/projects" }],
+    links: [{ rel: "canonical", href: "https://bhartientreprise.in/projects" }],
   }),
   component: Projects,
 });
@@ -52,12 +53,18 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
     >
       {/* Left side details (Right Aligned on desktop) */}
       <div className="flex flex-col items-start lg:items-end gap-1 w-full lg:w-[200px] pt-2 lg:pt-8 flex-shrink-0 text-left lg:text-right">
-        {/* Small logo block */}
-        <div className="h-6 w-10 bg-black text-white flex items-center justify-center font-bold text-[10px] mb-2">
-          BE
-        </div>
-        <h2 className="text-base font-medium text-black">{project.title}</h2>
-        <p className="text-[10px] text-gray-500 uppercase tracking-widest">{project.location}</p>
+        {/* Logo mark */}
+        <img
+          src={logo1}
+          alt="Bharti Enterprises"
+          className="h-8 w-auto object-contain mb-1.5"
+        />
+        <h2 className="font-display text-base font-semibold leading-snug text-[var(--brand)]">
+          {project.title}
+        </h2>
+        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {project.location}
+        </p>
       </div>
 
       {/* Right side image / inline horizontal gallery */}

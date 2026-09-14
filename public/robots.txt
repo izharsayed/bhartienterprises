@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bhartienterprises.in/sitemap.xml
+Sitemap: https://bhartientreprise.in/sitemap.xml
+

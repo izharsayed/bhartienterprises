@@ -26,44 +26,42 @@ export function AboutSplit() {
         <div>
           <Reveal>
             <div className="inline-flex rounded-full border border-[var(--brand)]/10 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-[var(--brand)]">
-              About the company
+              About Us
             </div>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-[var(--brand)] sm:text-5xl">
-              An engineering-first partner for India&apos;s
-              <span className="text-gradient"> critical infrastructure.</span>
+              Building Stronger
+              <span className="text-gradient"> Tomorrow.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 text-[17px] leading-relaxed text-muted-foreground">
-              We combine deep domain skill in telecom, fiber, civil and electrical work with a
-              disciplined project management culture so operators, OEMs and EPCs can scale
-              rollouts confidently, anywhere in the country.
+              Bharti Enterprises is a growing company committed to delivering reliable and high-quality construction solutions. With a focus on quality, safety, timely execution, and client satisfaction, we work closely with our clients to turn their ideas into successful projects. Our professional approach and attention to detail help us build strong and lasting business relationships.
             </p>
           </Reveal>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
               {
-                icon: Target,
-                title: "Mission",
-                body: "Deliver world-class infrastructure with speed, safety and craftsmanship.",
+                icon: Compass,
+                title: "Our Vision",
+                body: "To become a trusted name in the construction industry by delivering quality-driven, reliable, and sustainable solutions that create long-term value.",
               },
               {
-                icon: Compass,
-                title: "Vision",
-                body: "Be the most trusted execution partner for India&apos;s digital and civil networks.",
+                icon: Target,
+                title: "Our Mission",
+                body: "To deliver every project with quality, safety, and commitment, while maintaining transparency and timely execution.",
               },
               {
                 icon: ShieldCheck,
-                title: "Standards",
-                body: "ISO-aligned QHSE, RA-tested crews, and zero-tolerance safety culture.",
+                title: "Our Team",
+                body: "Experienced professionals, skilled supervisors, and dedicated project managers who work together with commitment and precision.",
               },
               {
                 icon: Target,
-                title: "Reach",
-                body: "Active in 14+ states with mobilization within 72 hours.",
+                title: "Why Choose Us?",
+                body: "Committed to delivering reliable, efficient, and quality-driven construction solutions with professional dedication.",
               },
             ].map((v) => (
               <Reveal key={v.title} delay={0.15}>

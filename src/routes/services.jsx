@@ -8,39 +8,39 @@ import { CheckCircle2 } from "lucide-react";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Bharti Enterprises Infrastructure Services",
+  name: "Bharti Enterprises Construction & Infrastructure Services",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Telecom Infrastructure", description: "End-to-end 4G/5G tower construction, RAN rollout, and site engineering." },
-    { "@type": "ListItem", position: 2, name: "Fiber Network (OFC / FTTH)", description: "OFC laying, blowing, splicing and last-mile FTTH — trenchless and open-cut." },
-    { "@type": "ListItem", position: 3, name: "Civil Construction", description: "Foundations, shelters, roads, bridges and turnkey civil packages." },
-    { "@type": "ListItem", position: 4, name: "Electrical", description: "HT/LT lines, substations, DG installations and electrification services." },
-    { "@type": "ListItem", position: 5, name: "Engineering Services", description: "Survey, design, project management and O&M for critical infrastructure." },
-    { "@type": "ListItem", position: 6, name: "Transportation", description: "Dedicated logistics with 25+ owned vehicles for material and equipment movement." },
-    { "@type": "ListItem", position: 7, name: "Labour Supply", description: "Skilled and semi-skilled workforce deployment across pan-India sites." },
-    { "@type": "ListItem", position: 8, name: "Outsourcing", description: "Managed services and staff augmentation for OEMs, operators and system integrators." },
+    { "@type": "ListItem", position: 1, name: "Residential Construction", description: "Quality residential construction solutions delivered with precision and safety." },
+    { "@type": "ListItem", position: 2, name: "Commercial Buildings", description: "Turnkey commercial complexes engineered for durability and modern functionality." },
+    { "@type": "ListItem", position: 3, name: "Industrial Projects", description: "Industrial sheds and manufacturing facilities with strong structural steelwork." },
+    { "@type": "ListItem", position: 4, name: "Institutional Buildings", description: "Educational institutes, administrative blocks, and government facilities." },
+    { "@type": "ListItem", position: 5, name: "Roads & Civil Works", description: "Road construction, earthwork, site leveling, and comprehensive civil works." },
+    { "@type": "ListItem", position: 6, name: "Drainage & Utilities", description: "Professional pipeline laying, drainage networks, and precise utility execution." },
+    { "@type": "ListItem", position: 7, name: "Renovation & Maintenance", description: "Structural strengthening, RCC repairs, and maintenance solutions." },
+    { "@type": "ListItem", position: 8, name: "Project Planning & Management", description: "End-to-end project planning, site safety briefing, and quality management." },
   ],
 };
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
+      { title: "Construction & Infrastructure Services | Bharti Enterprises" },
       {
         name: "description",
         content:
-          "Bharti Enterprises offers end-to-end infrastructure services: telecom tower construction, OFC fiber network laying and splicing, FTTH installation, civil construction, HT/LT electrical work, engineering services, transportation logistics, labour supply, and managed outsourcing across India.",
+          "Bharti Enterprises provides comprehensive construction and infrastructure services tailored to meet diverse project requirements: residential, commercial, industrial sheds, civil works, roads, pipelines, and project management.",
       },
       {
         name: "keywords",
-        content: "telecom tower construction, OFC laying India, OFC splicing services, FTTH installation contractor, civil construction company, electrical contractor India, HT LT line installation, engineering services India, labour supply contractor, managed outsourcing",
+        content: "civil construction company India, industrial shed construction, road construction contractor, pipeline laying, foundation work, RCC structural work, Bharti Enterprises services",
       },
-      { property: "og:title", content: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
-      { property: "og:description", content: "Eight full-stack infrastructure capabilities: telecom, fiber OFC/FTTH, civil, electrical, engineering, transport, labour and managed outsourcing." },
-      { property: "og:url", content: "https://www.bhartienterprises.in/services" },
-      { name: "twitter:title", content: "Infrastructure Services — Telecom, Fiber OFC, Civil & Electrical | Bharti Enterprises" },
-      { name: "twitter:description", content: "Eight full-stack infrastructure capabilities: telecom, OFC fiber, civil, electrical, engineering, transport, labour and outsourcing." },
+      { property: "og:title", content: "Construction & Infrastructure Services | Bharti Enterprises (bhartientreprise.in)" },
+      { property: "og:description", content: "Comprehensive construction and infrastructure services tailored to meet diverse project requirements." },
+      { property: "og:url", content: "https://bhartientreprise.in/services" },
+      { name: "twitter:title", content: "Construction & Infrastructure Services | Bharti Enterprises (bhartientreprise.in)" },
+      { name: "twitter:description", content: "Comprehensive construction and infrastructure services tailored to meet diverse project requirements." },
     ],
-    links: [{ rel: "canonical", href: "https://www.bhartienterprises.in/services" }],
+    links: [{ rel: "canonical", href: "https://bhartientreprise.in/services" }],
   }),
   component: Services,
 });
@@ -49,22 +49,22 @@ const process = [
   {
     step: "01",
     title: "Survey & design",
-    body: "RF and civil surveys, BOQ preparation, permit strategy.",
+    body: "Site surveys, BOQ preparation, and detailed engineering design.",
   },
   {
     step: "02",
     title: "Mobilisation",
-    body: "Crews on site within 72 hours with materials and machinery.",
+    body: "Crews, equipment, and materials deployed swiftly to the site.",
   },
   {
     step: "03",
     title: "Execution",
-    body: "Daily QA dashboards, safety toolbox talks, weekly reviews.",
+    body: "Site safety briefings, quality execution, and daily progress coordination.",
   },
   {
     step: "04",
-    title: "Handover & O&M",
-    body: "As-built docs, acceptance testing and 24×7 maintenance.",
+    title: "Handover & Support",
+    body: "Final inspection, quality assurance handover, and ongoing support.",
   },
 ];
 
@@ -74,8 +74,8 @@ function Services() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <PageHeader
         eyebrow="Services"
-        title="Full-stack infrastructure execution."
-        sub="From RF survey to substation handover every discipline we offer is delivered in-house by dedicated verticals."
+        title="Comprehensive Construction & Infrastructure Services."
+        sub="Tailored construction and infrastructure solutions designed for long-term performance, quality execution, and lasting value."
       />
 
       <ServicesGrid />

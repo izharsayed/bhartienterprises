@@ -7,7 +7,31 @@ const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eag
 const proj2Images = import.meta.glob("@/assets/project2/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
 const proj3FolderImages = import.meta.glob("@/assets/project3/*.{jpeg,jpg,png,mp4}", { eager: true, import: 'default' });
 
-import { Radio, Cable, Building2, Zap, Wrench, Truck, Users, Briefcase } from "lucide-react";
+import { Building2, Home, Factory, Landmark, Shovel, Droplets, Wrench, CalendarCheck } from "lucide-react";
+
+export const companyInfo = {
+  name: "Bharti Enterprises",
+  tagline: "Building Stronger Tomorrow",
+  subtagline: "Quality Construction · Reliable Solutions · Lasting Values",
+  motto: "From Vision to Reality",
+  phone: "+91 8799859344",
+  email: "Bhartienterprises.tsp@gmail.com",
+  address: "NIL, Dargah Dayra, Ahmadnagar, Ahmednagar, Maharashtra, 414001",
+  website: "bhartientreprise.in",
+  gstin: "27BWIPS4029L1ZZ",
+  about:
+    "Bharti Enterprises is a growing company committed to delivering reliable and high-quality construction solutions. With a focus on quality, safety, timely execution, and client satisfaction, we work closely with our clients to turn their ideas into successful projects. Our professional approach and attention to detail help us build strong and lasting business relationships.",
+  vision:
+    "To become a trusted name in the construction industry by delivering quality-driven, reliable, and sustainable solutions that create long-term value.",
+  mission:
+    "To deliver every project with quality, safety, and commitment, while maintaining transparency and timely execution. We aim to understand our clients' requirements, provide practical solutions, and continuously improve our services to achieve complete customer satisfaction.",
+  team:
+    "At Bharti Enterprises, our strength lies in our people. Our team consists of experienced professionals, skilled supervisors, and dedicated project managers who work together with commitment and precision. With a focus on quality, safety, and timely execution, we ensure every project is completed with professionalism and attention to detail.",
+  whyChooseUs:
+    "We are committed to delivering reliable, efficient, and quality-driven construction solutions. Our professional approach and dedication make us a trusted choice for every project.",
+  infrastructure:
+    "At Bharti Enterprises, we deliver reliable and high-quality infrastructure solutions designed for long-term performance. With skilled professionals, modern equipment, and a strong focus on quality and safety, we undertake construction projects with efficient planning and timely execution. Our goal is to create strong, sustainable infrastructure that adds lasting value.",
+};
 
 export const nav = [
   { to: "/", label: "Home" },
@@ -26,44 +50,44 @@ export const stats = [
 
 export const services = [
   {
-    icon: Radio,
-    title: "Telecom Infrastructure",
-    desc: "End-to-end tower construction, RAN rollout, and site engineering for 4G / 5G networks.",
-  },
-  {
-    icon: Cable,
-    title: "Fiber Network",
-    desc: "OFC laying, blowing, splicing and last-mile FTTH trenchless and open-cut expertise.",
+    icon: Home,
+    title: "Residential Construction",
+    desc: "Quality residential construction solutions delivered with precise planning, safety, and fine attention to detail.",
   },
   {
     icon: Building2,
-    title: "Civil Construction",
-    desc: "Foundations, shelters, roads, bridges and turnkey civil packages built to spec.",
+    title: "Commercial Buildings",
+    desc: "Turnkey commercial complexes and facilities engineered for durability, modern functionality, and lasting value.",
   },
   {
-    icon: Zap,
-    title: "Electrical",
-    desc: "HT/LT lines, substations, DG installations and complete electrification services.",
+    icon: Factory,
+    title: "Industrial Projects",
+    desc: "Industrial sheds, fabrication, and manufacturing facilities with strong structural steelwork and durable finishing.",
+  },
+  {
+    icon: Landmark,
+    title: "Institutional Buildings",
+    desc: "Educational institutes, administrative blocks, and government facilities executed with discipline and quality.",
+  },
+  {
+    icon: Shovel,
+    title: "Roads & Civil Works",
+    desc: "Road construction, earthwork, site leveling, soil removal, and comprehensive civil infrastructure execution.",
+  },
+  {
+    icon: Droplets,
+    title: "Drainage & Utilities",
+    desc: "Professional pipeline laying, underground drainage networks, safe handling, and precise utility site execution.",
   },
   {
     icon: Wrench,
-    title: "Engineering Services",
-    desc: "Survey, design, project management and O&M for mission-critical infrastructure.",
+    title: "Renovation & Maintenance",
+    desc: "Structural strengthening, RCC repairs, facility upgrades, and maintenance solutions for long-term stability.",
   },
   {
-    icon: Truck,
-    title: "Transportation",
-    desc: "Dedicated logistics with 25+ owned vehicles for material and equipment movement.",
-  },
-  {
-    icon: Users,
-    title: "Labour Supply",
-    desc: "Skilled and semi-skilled workforce deployment across pan-India project sites.",
-  },
-  {
-    icon: Briefcase,
-    title: "Outsourcing",
-    desc: "Managed services and staff augmentation for OEMs, operators and system integrators.",
+    icon: CalendarCheck,
+    title: "Project Planning & Management",
+    desc: "End-to-end planning, site safety briefing, work coordination, and quality assurance from vision to reality.",
   },
 ];
 
@@ -105,45 +129,45 @@ export const projects = [
 ];
 
 export const clients = [
-  "Reliance Jio",
-  "Airtel",
-  "Vi",
-  "BSNL",
-  "Tata Comm",
-  "Sterlite",
-  "Nokia",
-  "Ericsson",
-  "ZTE",
-  "Indus Towers",
-  "ATC",
-  "L&T",
-  "NHAI",
-  "PGCIL",
+  "Kalyan Toll Infrastructure Limited",
+  "Larsen & Toubro",
+  "Pace Power Systems Pvt. Ltd.",
+  "Pace Digitech",
+  "Bright Spot Innovations LLP",
+  "Kay Buildcon",
+  "Digital Den",
+  "Sumedha Infra Projects Pvt. Ltd.",
+  "Navayuga Engineering Company Limited",
+  "DEPL Projects Limited",
+  "Fidesto Projects Pvt. Ltd.",
+  "Yashraj promoters & Builders",
+  "Ariel Telecom private limited",
+  "Pratap Technocrats",
 ];
 
 export const testimonials = [
   {
-    name: "Rajeev Menon",
-    role: "Regional Head, Tier-1 Operator",
+    name: "Kalyan Toll Infrastructure",
+    role: "Infrastructure Partner",
     quote:
-      "Bharti Enterprises delivered our 5G cluster three weeks ahead of schedule with zero safety incidents. Their crews are the best we've deployed with.",
+      "Bharti Enterprises delivered roadworks and civil execution with efficient planning and strict adherence to safety standards. A highly dependable partner.",
   },
   {
-    name: "Anita Sharma",
-    role: "Project Director, Fiber ISP",
+    name: "Larsen & Toubro",
+    role: "Engineering Partner",
     quote:
-      "1,200+ KM of long-haul fiber completed under monsoon conditions. Their engineering discipline is genuinely rare in this sector.",
+      "Timely completion, precision structural work, and dedicated site supervision on every project. Their professional approach is truly commendable.",
   },
   {
-    name: "Vikram Iyer",
-    role: "VP Deployment, OEM",
+    name: "Sumedha Infra Projects",
+    role: "Civil Infrastructure Partner",
     quote:
-      "A partner that shows up, communicates, and closes tickets. Bharti has become our default civil partner across four states.",
+      "Comprehensive infrastructure solutions delivered with quality materials, skilled operators, and complete adherence to quality assurance.",
   },
   {
-    name: "Priya Nair",
-    role: "Head of Operations, EPC",
+    name: "Navayuga Engineering",
+    role: "Project Partner",
     quote:
-      "They scaled from 40 to 400 crew for our expressway package inside a month. Execution muscle and management maturity in equal measure.",
+      "From earthwork and deep foundations to RCC execution, Bharti Enterprises brings complete transparency, skilled execution, and dedication.",
   },
 ];

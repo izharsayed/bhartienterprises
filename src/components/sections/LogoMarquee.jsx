@@ -6,7 +6,7 @@ export function LogoMarquee() {
     <section className="relative py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
-          Trusted by India&apos;s largest operators, OEMs & EPCs
+          Our Esteemed Clients · Building Trust Through Every Project
         </div>
         <div className="mask-fade mt-8 overflow-hidden">
           <div className="animate-marquee flex w-max gap-14">

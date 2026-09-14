@@ -70,7 +70,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-accent)] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-accent)]" />
             </span>
-            Trusted since 2014 · Pan-India Deployment
+            Quality Construction · Reliable Solutions · Lasting Values
           </motion.div>
 
           <motion.h1
@@ -80,8 +80,8 @@ export function Hero() {
             className="mt-6 text-[44px] font-semibold leading-[1.02] tracking-tight text-[var(--brand)] sm:text-6xl lg:text-[72px]"
             style={{ fontFamily: "'Raleway', sans-serif" }}
           >
-            Building India&apos;s <br />
-            <span className="text-gradient">Digital Infrastructure.</span>
+            Building Stronger <br />
+            <span className="text-gradient">Tomorrow.</span>
           </motion.h1>
 
           <motion.p
@@ -90,8 +90,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            From telecom towers to fiber deployment and civil engineering comprehensive
-            infrastructure solutions by a team of 100+ specialists nationwide.
+            From vision to reality — delivering reliable, high-quality infrastructure and construction solutions with skilled professionals, modern equipment, and timely execution.
           </motion.p>
 
           <motion.div

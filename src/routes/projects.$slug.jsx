@@ -28,7 +28,7 @@ export const Route = createFileRoute("/projects/$slug")({
         ]
       : [{ title: "Project not found" }, { name: "robots", content: "noindex" }],
     links: loaderData
-      ? [{ rel: "canonical", href: `https://www.bhartienterprises.in/projects/${loaderData.project.slug}` }]
+      ? [{ rel: "canonical", href: `https://bhartientreprise.in/projects/${loaderData.project.slug}` }]
       : [],
   }),
   component: ProjectDetail,
@@ -40,9 +40,9 @@ function ProjectDetail() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.bhartienterprises.in/" },
-      { "@type": "ListItem", position: 2, name: "Projects", item: "https://www.bhartienterprises.in/projects" },
-      { "@type": "ListItem", position: 3, name: project.title, item: `https://www.bhartienterprises.in/projects/${project.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bhartientreprise.in/" },
+      { "@type": "ListItem", position: 2, name: "Projects", item: "https://bhartientreprise.in/projects" },
+      { "@type": "ListItem", position: 3, name: project.title, item: `https://bhartientreprise.in/projects/${project.slug}` },
     ],
   };
   const highlights = [

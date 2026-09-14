@@ -10,52 +10,52 @@ import outsourcingImg from "@/assets/disc-outsourcing.jpg";
 
 const disciplines = [
   {
-    image: telecomImg,
-    title: "Telecom Infrastructure",
-    desc: "End-to-end tower construction, RAN rollout, and site engineering for 4G / 5G networks.",
-    tag: "Wireless",
-  },
-  {
-    image: fiberImg,
-    title: "Fiber Network",
-    desc: "OFC laying, blowing, splicing and last-mile FTTH trenchless and open-cut expertise.",
-    tag: "Connectivity",
-  },
-  {
     image: civilImg,
-    title: "Civil Construction",
-    desc: "Foundations, shelters, roads, bridges and turnkey civil packages built to spec.",
-    tag: "Build",
-  },
-  {
-    image: electricalImg,
-    title: "Electrical",
-    desc: "HT/LT lines, substations, DG installations and complete electrification services.",
-    tag: "Power",
-  },
-  {
-    image: engineeringImg,
-    title: "Engineering Services",
-    desc: "Survey, design, project management and O&M for mission-critical infrastructure.",
-    tag: "Design",
+    title: "Earthwork & Site Development",
+    desc: "Reliable excavation, soil removal, land leveling, and site preparation with modern machinery and skilled operators.",
+    tag: "Earthwork",
   },
   {
     image: transportImg,
-    title: "Transportation",
-    desc: "Dedicated logistics with 25+ owned vehicles for material and equipment movement.",
-    tag: "Logistics",
+    title: "Road & Civil Construction",
+    desc: "Road construction and civil works undertaken with a strong focus on quality, safety, and timely execution.",
+    tag: "Civil",
   },
   {
-    image: labourImg,
-    title: "Labour Supply",
-    desc: "Skilled and semi-skilled workforce deployment across pan-India project sites.",
-    tag: "Workforce",
+    image: engineeringImg,
+    title: "Foundation Work",
+    desc: "Strong and reliable foundation solutions with precise planning, quality materials, and skilled execution.",
+    tag: "Foundations",
+  },
+  {
+    image: electricalImg,
+    title: "RCC & Structural Work",
+    desc: "Professional RCC and structural construction services ensuring strength, durability, and safety at every stage.",
+    tag: "Structural",
   },
   {
     image: outsourcingImg,
-    title: "Outsourcing",
-    desc: "Managed services and staff augmentation for OEMs, operators and system integrators.",
-    tag: "Managed",
+    title: "Industrial Shed Construction",
+    desc: "Reliable industrial shed solutions with strong structures, efficient planning, and quality execution.",
+    tag: "Industrial",
+  },
+  {
+    image: telecomImg,
+    title: "Structural Steel Work",
+    desc: "Structural steel fabrication and erection with a focus on strength, precision, safety, and timely completion.",
+    tag: "Steelwork",
+  },
+  {
+    image: fiberImg,
+    title: "Pipeline Installation",
+    desc: "Professional pipeline laying and installation work with proper planning, safe handling, and precise site execution.",
+    tag: "Pipelines",
+  },
+  {
+    image: labourImg,
+    title: "Utility & Civil Works",
+    desc: "Reliable utility and civil infrastructure services ensuring safe installation and quality workmanship.",
+    tag: "Utilities",
   },
 ];
 
@@ -76,16 +76,14 @@ export function DisciplinesGrid() {
         <Reveal>
           <div className="text-center">
             <div className="inline-flex rounded-full border border-[var(--brand)]/10 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-[var(--brand)]">
-              Our disciplines
+              Our Disciplines
             </div>
             <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-[var(--brand)] sm:text-5xl">
-              Eight capabilities.{" "}
-              <span className="text-gradient">One accountable partner.</span>
+              Comprehensive Services.{" "}
+              <span className="text-gradient">One Accountable Partner.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">
-              From telecom towers to optical fiber, civil construction to power
-              grids we bring specialist expertise across every domain of
-              India's critical infrastructure.
+              From earthwork and foundations to industrial sheds, RCC structures, and pipeline networks — we bring specialist expertise and modern equipment across every domain of construction.
             </p>
           </div>
         </Reveal>
