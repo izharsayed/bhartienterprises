@@ -40,8 +40,8 @@ export function FeaturedProjects() {
               className={i % 3 === 0 ? "lg:col-span-2" : ""}
             >
               <Link
-                to="/projects/$slug"
-                params={{ slug: p.slug }}
+                to="/projects"
+                search={{ project: p.slug }}
                 className="group relative block overflow-hidden rounded-[28px] border border-border/60 bg-white"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">

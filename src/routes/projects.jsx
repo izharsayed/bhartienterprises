@@ -69,6 +69,15 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
         <p className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           {project.location}
         </p>
+        {isActive && (
+          <button
+            onClick={onClose}
+            className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-[var(--brand)] transition-colors"
+          >
+            <span>Close gallery</span>
+            <span className="text-sm font-bold">&times;</span>
+          </button>
+        )}
       </div>
 
       {/* Right side image / inline horizontal gallery */}
@@ -76,7 +85,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
         layout
         className={`relative ${
           isActive
-            ? 'w-[100vw] -ml-8 px-8 sm:px-0 sm:ml-0 sm:w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide'
+            ? 'w-screen -ml-4 px-4 sm:-ml-8 sm:px-8 lg:ml-0 lg:px-0 lg:w-full flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-4 pb-4 scrollbar-hide'
             : 'w-full aspect-[4/3] sm:aspect-auto sm:h-[250px] lg:h-[350px] sm:w-fit cursor-pointer overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow duration-300'
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -93,7 +102,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
           onClick={isActive ? onClose : onClick}
           className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl ${
             isActive
-              ? 'w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start'
+              ? 'w-[76vw] sm:w-fit h-[380px] sm:h-[300px] lg:h-[450px] snap-start'
               : 'w-full h-full'
           }`}
         >
@@ -121,37 +130,37 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
           )}
         </motion.div>
 
-        {/* 2. Details Text Card (Appears immediately next to the clicked image) */}
+        {/* 2. Details Text Card (Appears immediately next to the clicked image, peeking on mobile) */}
         {isActive && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15, duration: 0.4 }}
-            className="flex-shrink-0 w-[85vw] sm:w-[380px] lg:w-[420px] h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-md p-6 sm:p-7 lg:p-8 flex flex-col justify-center text-left"
+            className="flex-shrink-0 w-[76vw] sm:w-[380px] lg:w-[420px] h-[380px] sm:h-[300px] lg:h-[450px] snap-start overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-md p-5 sm:p-7 lg:p-8 flex flex-col justify-center text-left"
           >
             {project.badge && (
-              <div className="mb-4 self-start">
+              <div className="mb-3 sm:mb-4 self-start">
                 <span
-                  className="inline-block bg-[#183B70] text-white font-display text-xs sm:text-sm font-bold tracking-wider uppercase px-4 py-1.5 shadow-sm"
-                  style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%)' }}
+                  className="inline-block bg-[#183B70] text-white font-display text-[10px] sm:text-xs lg:text-sm font-bold tracking-wider uppercase px-3 sm:px-4 py-1.5 shadow-sm"
+                  style={{ clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%)' }}
                 >
                   {project.badge}
                 </span>
               </div>
             )}
 
-            <p className="font-sans text-xs sm:text-[13px] lg:text-[14px] leading-relaxed text-slate-700 font-normal mb-4">
+            <p className="font-sans text-xs sm:text-[13px] lg:text-[14px] leading-relaxed text-slate-700 font-normal mb-3 sm:mb-4">
               {project.summary}
             </p>
 
-            <div className="w-14 h-1 bg-[#183B70] rounded-full mb-4" />
+            <div className="w-12 sm:w-14 h-1 bg-[#183B70] rounded-full mb-3.5 sm:mb-4" />
 
             {project.points && project.points.length > 0 && (
-              <div className="space-y-2.5">
+              <div className="space-y-2 sm:space-y-2.5">
                 {project.points.map((pt, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-800">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#183B70] text-white flex-shrink-0">
-                      <Check className="h-3 w-3 stroke-[3]" />
+                  <div key={idx} className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm font-medium text-slate-800">
+                    <span className="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[#183B70] text-white flex-shrink-0">
+                      <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 stroke-[3]" />
                     </span>
                     <span>{pt}</span>
                   </div>
@@ -171,7 +180,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
-                className="flex-shrink-0 w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl shadow-md relative group/item bg-slate-100"
+                className="flex-shrink-0 w-[76vw] sm:w-fit h-[380px] sm:h-[300px] lg:h-[450px] snap-start overflow-hidden rounded-xl shadow-md relative group/item bg-slate-100"
               >
                 {isVideo ? (
                   <video
@@ -207,38 +216,19 @@ function Projects() {
     if (search.project) {
       setActiveProject(search.project);
       
-      // Allow DOM to update then scroll to project
-      setTimeout(() => {
+      // Allow DOM to update then scroll smoothly to the active project
+      const scrollTimer = setTimeout(() => {
         const el = document.getElementById(`project-${search.project}`);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const rect = el.getBoundingClientRect();
+          const targetY = window.scrollY + rect.top - 100;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
         }
-      }, 100);
+      }, 150);
+
+      return () => clearTimeout(scrollTimer);
     }
   }, [search.project]);
-
-  // Close active project on vertical scroll
-  useEffect(() => {
-    if (!activeProject) return;
-
-    let initialScrollY = window.scrollY;
-    
-    const handleScroll = () => {
-      if (Math.abs(window.scrollY - initialScrollY) > 50) {
-        setActiveProject(null);
-      }
-    };
-
-    const timer = setTimeout(() => {
-      initialScrollY = window.scrollY;
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [activeProject]);
 
   return (
     <div className="bg-neutral-50 pt-32 min-h-screen">
@@ -275,7 +265,7 @@ function Projects() {
         </motion.h1>
       </div>
 
-      <div className="mx-auto max-w-[1400px] px-8 pb-32 lg:px-14 flex flex-col gap-16 lg:gap-24 overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8 pb-32 lg:px-14 flex flex-col gap-16 lg:gap-24">
         {projects.map((project) => (
           <div id={`project-${project.slug}`} key={project.slug}>
             <ProjectCard
