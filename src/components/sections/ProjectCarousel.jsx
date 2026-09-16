@@ -150,7 +150,7 @@ export function ProjectCarousel({ hideHeader }) {
                 }}
               >
                 <img
-                  src={p.image}
+                  src={p.heroImage || p.image}
                   alt={p.title}
                   className="h-full w-full object-cover"
                 />
@@ -224,7 +224,7 @@ export function ProjectCarousel({ hideHeader }) {
         `}</style>
         {projects.map((p) => (
           <div key={p.slug} className="w-[85vw] flex-shrink-0 snap-center relative rounded-2xl overflow-hidden shadow-lg h-[450px]">
-            <img src={p.image} className="w-full h-full object-cover" alt={p.title} />
+            <img src={p.heroImage || p.image} className="w-full h-full object-cover" alt={p.title} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col items-start text-left text-white">
               <div className="mb-3 rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest backdrop-blur-md">

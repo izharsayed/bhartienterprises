@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { projects } from "@/data/site";
 import { CTA } from "@/components/sections/CTA";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { Check } from "lucide-react";
 import logo1 from "@/assets/logo1.png";
 
 export const Route = createFileRoute("/projects")({
@@ -46,13 +47,16 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
   // Scale down when at edges of viewport, scale up to 1 when in center
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 0.85]);
 
+  // Exclude the cover image from the rest of the gallery to avoid duplication
+  const otherImages = (project.images || []).filter((img) => img !== project.image);
+
   return (
     <div
       ref={ref}
       className="group flex flex-col lg:flex-row gap-6 lg:gap-12 items-start justify-center lg:justify-start lg:pl-[5vw] w-full"
     >
       {/* Left side details (Right Aligned on desktop) */}
-      <div className="flex flex-col items-start lg:items-end gap-1 w-full lg:w-[200px] pt-2 lg:pt-8 flex-shrink-0 text-left lg:text-right">
+      <div className="flex flex-col items-start lg:items-end gap-1 w-full lg:w-[200px] pt-2 lg:pt-6 flex-shrink-0 text-left lg:text-right">
         {/* Logo mark */}
         <img
           src={logo1}
@@ -70,10 +74,11 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
       {/* Right side image / inline horizontal gallery */}
       <motion.div
         layout
-        className={`relative ${isActive
+        className={`relative ${
+          isActive
             ? 'w-[100vw] -ml-8 px-8 sm:px-0 sm:ml-0 sm:w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide'
             : 'w-full aspect-[4/3] sm:aspect-auto sm:h-[250px] lg:h-[350px] sm:w-fit cursor-pointer overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow duration-300'
-          }`}
+        }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <style>{`
@@ -82,12 +87,15 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
           }
         `}</style>
 
-        {/* Main Cover Image */}
+        {/* 1. Main Cover Image (Existing Project Image) */}
         <motion.div
           layout
           onClick={isActive ? onClose : onClick}
-          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl ${isActive ? 'w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start' : 'w-full h-full'
-            }`}
+          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl ${
+            isActive
+              ? 'w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start'
+              : 'w-full h-full'
+          }`}
         >
           {project.image.includes('.mp4') ? (
             <motion.video
@@ -113,25 +121,79 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
           )}
         </motion.div>
 
-        {/* Gallery Images (fade in when active on desktop) */}
-        {isActive && project.images && project.images.map((img, i) => {
-          const isVideo = img.includes('.mp4');
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 + (i * 0.05), duration: 0.4 }}
-              className="flex-shrink-0 w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl shadow-md relative group/item"
-            >
-              {isVideo ? (
-                <video src={img} autoPlay loop muted playsInline className="h-full w-full sm:w-auto object-cover" />
-              ) : (
-                <img src={img} alt={`${project.title} — project image ${i + 1}`} title={project.title} loading="lazy" className="h-full w-full sm:w-auto object-cover" />
-              )}
-            </motion.div>
-          );
-        })}
+        {/* 2. Details Text Card (Appears immediately next to the clicked image) */}
+        {isActive && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
+            className="flex-shrink-0 w-[85vw] sm:w-[380px] lg:w-[420px] h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-md p-6 sm:p-7 lg:p-8 flex flex-col justify-center text-left"
+          >
+            {project.badge && (
+              <div className="mb-4 self-start">
+                <span
+                  className="inline-block bg-[#183B70] text-white font-display text-xs sm:text-sm font-bold tracking-wider uppercase px-4 py-1.5 shadow-sm"
+                  style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%)' }}
+                >
+                  {project.badge}
+                </span>
+              </div>
+            )}
+
+            <p className="font-sans text-xs sm:text-[13px] lg:text-[14px] leading-relaxed text-slate-700 font-normal mb-4">
+              {project.summary}
+            </p>
+
+            <div className="w-14 h-1 bg-[#183B70] rounded-full mb-4" />
+
+            {project.points && project.points.length > 0 && (
+              <div className="space-y-2.5">
+                {project.points.map((pt, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-800">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#183B70] text-white flex-shrink-0">
+                      <Check className="h-3 w-3 stroke-[3]" />
+                    </span>
+                    <span>{pt}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+
+        {/* 3. Remaining Gallery Images (Appear after the details text) */}
+        {isActive &&
+          otherImages.map((img, i) => {
+            const isVideo = img.includes('.mp4');
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
+                className="flex-shrink-0 w-[85vw] sm:w-fit h-[400px] sm:h-[300px] lg:h-[450px] snap-center sm:snap-start overflow-hidden rounded-xl shadow-md relative group/item bg-slate-100"
+              >
+                {isVideo ? (
+                  <video
+                    src={img}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full sm:w-auto object-cover"
+                  />
+                ) : (
+                  <img
+                    src={img}
+                    alt={`${project.title} — site photo ${i + 1}`}
+                    title={project.title}
+                    loading="lazy"
+                    className="h-full w-full sm:w-auto object-cover"
+                  />
+                )}
+              </motion.div>
+            );
+          })}
       </motion.div>
     </div>
   );

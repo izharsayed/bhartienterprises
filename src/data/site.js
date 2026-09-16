@@ -2,6 +2,7 @@ import p1 from "@/assets/project1/bharti-enterprises-infrastructure-project-1-im
 import p2 from "@/assets/project2/bharti-enterprises-infrastructure-project-2-image-1.jpeg";
 import p5 from "@/assets/project3/WhatsApp Image 2026-07-31 at 8.45.08 PM.jpeg";
 
+
 // Dynamic imports for the new layout
 const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
 const proj2Images = import.meta.glob("@/assets/project2/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
@@ -95,36 +96,44 @@ export const projects = [
   {
     slug: "school-labs-construction",
     title: "Government School Lab Construction",
+    badge: "INDUSTRIAL SHED CONSTRUCTION",
     image: p1,
     images: Object.values(proj1Images),
-    tag: "Civil",
+    tag: "Industrial & Institutional",
     location: "Dhargaon, Maharashtra",
     year: "2024",
     progress: 100,
     summary:
-      "Construction of government school practical labs and computer labs, featuring material and cold room setups.",
+      "We provide reliable industrial shed construction solutions with strong structures, efficient planning, and quality execution for long-lasting performance.",
+    points: ["Steel Structure", "Industrial Shed", "Quality Construction"],
   },
   {
     slug: "school-ground-construction",
     title: "Government School Ground Construction",
+    badge: "ROAD & CIVIL CONSTRUCTION",
     image: p2,
     images: Object.values(proj2Images),
-    tag: "Civil",
+    tag: "Civil & Earthwork",
     location: "Bhingar, Ahmednagar, Maharashtra",
     year: "2024",
     progress: 100,
-    summary: "Construction and leveling of government school grounds to provide better sports and assembly facilities.",
+    summary:
+      "We undertake road construction and civil works with a focus on quality, safety, and timely execution.",
+    points: ["Road Construction", "Site Development", "Modern Equipment", "Skilled Team"],
   },
   {
     slug: "pipeline-infrastructure",
     title: "Pipeline Infrastructure Project",
+    badge: "PIPELINE INSTALLATION",
     image: p5,
     images: Object.values(proj3FolderImages),
-    tag: "Civil",
+    tag: "Infrastructure & Utilities",
     location: "India",
     year: "2024",
     progress: 100,
-    summary: "Complete pipeline infrastructure setup and deployment including related works.",
+    summary:
+      "We undertake professional pipeline laying and installation work with proper planning, safe handling, and precise site execution.",
+    points: ["Pipeline Laying", "Installation", "Site Execution"],
   },
 ];
 

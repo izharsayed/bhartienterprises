@@ -46,7 +46,7 @@ export function FeaturedProjects() {
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
-                    src={p.image}
+                    src={p.heroImage || p.image}
                     alt={p.title}
                     className="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06]"
                     loading="lazy"

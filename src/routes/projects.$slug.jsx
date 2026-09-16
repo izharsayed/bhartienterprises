@@ -90,7 +90,7 @@ function ProjectDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mt-10 overflow-hidden rounded-[32px] border border-border/60"
+            className="mt-10 overflow-hidden rounded-[32px] border border-border/60 bg-white p-3 sm:p-6 shadow-md flex items-center justify-center"
           >
             <img
               src={project.image}
@@ -99,7 +99,7 @@ function ProjectDetail() {
               loading="eager"
               width={1400}
               height={520}
-              className="h-[520px] w-full object-cover"
+              className="max-h-[520px] w-auto max-w-full object-contain rounded-2xl"
             />
           </motion.div>
         </div>
@@ -112,26 +112,26 @@ function ProjectDetail() {
               Project overview
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{project.summary}</p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Our team combined civil, RF, electrical and fiber crews under a single PMO to keep
-              this deployment on aggressive timelines while meeting the operator&apos;s acceptance
-              criteria at every milestone.
-            </p>
+            {project.subtitle && (
+              <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-[var(--brand-blue)]">
+                {project.subtitle}
+              </p>
+            )}
 
             <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {highlights.map((h) => (
+              {(project.points || highlights).map((h) => (
                 <div
                   key={h}
-                  className="flex items-start gap-3 rounded-2xl border border-border/60 bg-white p-4"
+                  className="flex items-start gap-3 rounded-2xl border border-border/60 bg-white p-4 shadow-sm"
                 >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-[var(--brand-accent)]" />
-                  <span className="text-sm">{h}</span>
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-[var(--brand-accent)] flex-shrink-0" />
+                  <span className="text-sm font-medium text-slate-800">{h}</span>
                 </div>
               ))}
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="sticky top-32 rounded-3xl border border-border/60 bg-white p-6">
+            <div className="sticky top-32 rounded-3xl border border-border/60 bg-white p-6 shadow-sm">
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Progress
               </div>
@@ -172,7 +172,7 @@ function ProjectDetail() {
               </dl>
               <Link
                 to="/contact"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-5 py-3 text-sm font-medium text-white hover:bg-[var(--brand-blue)]"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-5 py-3 text-sm font-medium text-white hover:bg-[var(--brand-blue)] transition-colors"
               >
                 Discuss a similar project <ArrowUpRight className="h-4 w-4" />
               </Link>
@@ -180,6 +180,49 @@ function ProjectDetail() {
           </Reveal>
         </div>
       </section>
+
+      {/* On-Site Gallery Section */}
+      {project.images && project.images.length > 0 && (
+        <section className="border-t border-border/40 bg-neutral-100/60 py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 className="font-display text-3xl font-semibold text-[var(--brand)]">
+              On-Site Project Gallery
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Direct field documentation and milestone photography from {project.location}.
+            </p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {project.images.map((img, i) => {
+                const isVideo = img.includes('.mp4');
+                return (
+                  <div
+                    key={i}
+                    className="group relative overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm"
+                  >
+                    {isVideo ? (
+                      <video
+                        src={img}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="aspect-[4/3] w-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={img}
+                        alt={`${project.title} on-site photo ${i + 1}`}
+                        className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
       <CTA />
     </>
   );
