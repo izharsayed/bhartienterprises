@@ -2,6 +2,13 @@ import p1 from "@/assets/project1/bharti-enterprises-infrastructure-project-1-im
 import p2 from "@/assets/project2/bharti-enterprises-infrastructure-project-2-image-1.jpeg";
 import p5 from "@/assets/project3/WhatsApp Image 2026-07-31 at 8.45.08 PM.jpeg";
 
+import featShed from "@/assets/features/industrial-shed-construction-detail.png";
+import featRoad from "@/assets/features/road-civil-construction-detail.png";
+import featPipe from "@/assets/features/pipeline-installation-detail.png";
+
+import shedPhoto from "@/assets/features/shed-photo.png";
+import excavatorPhoto from "@/assets/features/excavator-photo.png";
+import pipelinePhoto from "@/assets/features/pipeline-photo.png";
 
 // Dynamic imports for the new layout
 const proj1Images = import.meta.glob("@/assets/project1/*.{jpeg,jpg,mp4}", { eager: true, import: 'default' });
@@ -97,7 +104,9 @@ export const projects = [
     slug: "school-labs-construction",
     title: "Government School Lab Construction",
     badge: "INDUSTRIAL SHED CONSTRUCTION",
-    image: p1,
+    image: featShed,
+    photo: shedPhoto,
+    heroImage: p1,
     images: Object.values(proj1Images),
     tag: "Industrial & Institutional",
     location: "Dhargaon, Maharashtra",
@@ -111,7 +120,9 @@ export const projects = [
     slug: "school-ground-construction",
     title: "Government School Ground Construction",
     badge: "ROAD & CIVIL CONSTRUCTION",
-    image: p2,
+    image: featRoad,
+    photo: excavatorPhoto,
+    heroImage: p2,
     images: Object.values(proj2Images),
     tag: "Civil & Earthwork",
     location: "Bhingar, Ahmednagar, Maharashtra",
@@ -125,7 +136,9 @@ export const projects = [
     slug: "pipeline-infrastructure",
     title: "Pipeline Infrastructure Project",
     badge: "PIPELINE INSTALLATION",
-    image: p5,
+    image: featPipe,
+    photo: pipelinePhoto,
+    heroImage: p5,
     images: Object.values(proj3FolderImages),
     tag: "Infrastructure & Utilities",
     location: "India",

@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { projects } from "@/data/site";
 import { CTA } from "@/components/sections/CTA";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Check } from "lucide-react";
 import logo1 from "@/assets/logo1.png";
 
 export const Route = createFileRoute("/projects")({
@@ -86,7 +85,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
         className={`relative ${
           isActive
             ? 'w-screen -ml-4 px-4 sm:-ml-8 sm:px-8 lg:ml-0 lg:px-0 lg:w-full flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-4 pb-4 scrollbar-hide'
-            : 'w-full aspect-[4/3] sm:aspect-auto sm:h-[250px] lg:h-[350px] sm:w-fit cursor-pointer overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow duration-300'
+            : 'w-full aspect-[1.92/1] sm:aspect-auto sm:h-[250px] lg:h-[350px] sm:w-fit cursor-pointer overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow duration-300 bg-white border border-slate-200/60'
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
@@ -96,81 +95,87 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
           }
         `}</style>
 
-        {/* 1. Main Cover Image (Existing Project Image) */}
+        {/* 1. Main Cover Image (Feature Card from PDF) */}
         <motion.div
           layout
           onClick={isActive ? onClose : onClick}
-          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl ${
+          className={`flex-shrink-0 cursor-pointer origin-center relative overflow-hidden rounded-xl bg-white border border-slate-200/90 ${
             isActive
-              ? 'w-[76vw] sm:w-fit h-[380px] sm:h-[300px] lg:h-[450px] snap-start'
+              ? 'w-[85vw] sm:w-fit h-[380px] sm:h-[300px] lg:h-[450px] snap-start'
               : 'w-full h-full'
           }`}
         >
-          {project.image.includes('.mp4') ? (
-            <motion.video
-              layoutId={isActive ? undefined : `project-media-${project.slug}`}
-              style={{ scale: isActive ? 1 : scale }}
-              src={project.image}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="h-full w-full sm:w-auto object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+          {/* Mobile active view: Covers full 380px card with photo on top and readable typography on bottom */}
+          {isActive ? (
+            <>
+              <div className="flex sm:hidden flex-col h-full w-full justify-between text-left">
+                <div className="h-[180px] w-full overflow-hidden bg-slate-100 flex-shrink-0">
+                  <img
+                    src={project.photo || project.heroImage || project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between bg-white">
+                  {project.badge && (
+                    <div className="mb-1.5 self-start">
+                      <span
+                        className="inline-block bg-[#183B70] text-white font-display text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 shadow-sm"
+                        style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 0 100%)' }}
+                      >
+                        {project.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  <p className="font-sans text-[11px] leading-relaxed text-slate-700 font-normal mb-2 line-clamp-3">
+                    {project.summary}
+                  </p>
+
+                  <div className="w-8 h-0.5 bg-[#183B70] rounded-full mb-2" />
+
+                  {project.points && project.points.length > 0 && (
+                    <div className="space-y-1.5">
+                      {project.points.slice(0, 3).map((pt, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-[11px] font-medium text-slate-800">
+                          <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#183B70] text-white flex-shrink-0">
+                            <svg className="h-2 w-2 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          </span>
+                          <span className="truncate">{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Desktop active view: Wide PDF presentation graphic */}
+              <img
+                src={project.image}
+                alt={project.title}
+                title={project.title}
+                loading="lazy"
+                className="hidden sm:block h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105"
+              />
+            </>
           ) : (
+            /* Closed card view (both mobile & desktop) */
             <motion.img
-              layoutId={isActive ? undefined : `project-media-${project.slug}`}
-              style={{ scale: isActive ? 1 : scale }}
+              layoutId={`project-media-${project.slug}`}
+              style={{ scale }}
               src={project.image}
               alt={project.title}
               title={project.title}
               loading="lazy"
-              className="h-full w-full sm:w-auto object-cover transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full sm:w-auto object-contain transition-transform duration-700 group-hover:scale-105"
             />
           )}
         </motion.div>
 
-        {/* 2. Details Text Card (Appears immediately next to the clicked image, peeking on mobile) */}
-        {isActive && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.15, duration: 0.4 }}
-            className="flex-shrink-0 w-[76vw] sm:w-[380px] lg:w-[420px] h-[380px] sm:h-[300px] lg:h-[450px] snap-start overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-md p-5 sm:p-7 lg:p-8 flex flex-col justify-center text-left"
-          >
-            {project.badge && (
-              <div className="mb-3 sm:mb-4 self-start">
-                <span
-                  className="inline-block bg-[#183B70] text-white font-display text-[10px] sm:text-xs lg:text-sm font-bold tracking-wider uppercase px-3 sm:px-4 py-1.5 shadow-sm"
-                  style={{ clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%)' }}
-                >
-                  {project.badge}
-                </span>
-              </div>
-            )}
-
-            <p className="font-sans text-xs sm:text-[13px] lg:text-[14px] leading-relaxed text-slate-700 font-normal mb-3 sm:mb-4">
-              {project.summary}
-            </p>
-
-            <div className="w-12 sm:w-14 h-1 bg-[#183B70] rounded-full mb-3.5 sm:mb-4" />
-
-            {project.points && project.points.length > 0 && (
-              <div className="space-y-2 sm:space-y-2.5">
-                {project.points.map((pt, idx) => (
-                  <div key={idx} className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm font-medium text-slate-800">
-                    <span className="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[#183B70] text-white flex-shrink-0">
-                      <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 stroke-[3]" />
-                    </span>
-                    <span>{pt}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        )}
-
-        {/* 3. Remaining Gallery Images (Appear after the details text) */}
+        {/* 2. Remaining Gallery Images (Appear after the cover image) */}
         {isActive &&
           otherImages.map((img, i) => {
             const isVideo = img.includes('.mp4');
@@ -179,7 +184,7 @@ function ProjectCard({ project, isActive, onClick, onClose }) {
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
+                transition={{ delay: 0.15 + i * 0.05, duration: 0.4 }}
                 className="flex-shrink-0 w-[76vw] sm:w-fit h-[380px] sm:h-[300px] lg:h-[450px] snap-start overflow-hidden rounded-xl shadow-md relative group/item bg-slate-100"
               >
                 {isVideo ? (
