@@ -19,12 +19,22 @@ export const Route = createFileRoute("/projects/$slug")({
           { name: "robots", content: "index, follow" },
           { property: "og:title", content: `${loaderData.project.title} | Bharti Enterprises` },
           { property: "og:description", content: loaderData.project.summary },
-          { property: "og:image", content: loaderData.project.image },
+          {
+            property: "og:image",
+            content: loaderData.project.image?.startsWith("http")
+              ? loaderData.project.image
+              : `https://bhartientreprise.in${loaderData.project.image}`,
+          },
           { property: "og:type", content: "article" },
           { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:title", content: `${loaderData.project.title} | Bharti Enterprises` },
           { name: "twitter:description", content: loaderData.project.summary },
-          { name: "twitter:image", content: loaderData.project.image },
+          {
+            name: "twitter:image",
+            content: loaderData.project.image?.startsWith("http")
+              ? loaderData.project.image
+              : `https://bhartientreprise.in${loaderData.project.image}`,
+          },
         ]
       : [{ title: "Project not found" }, { name: "robots", content: "noindex" }],
     links: loaderData

@@ -178,10 +178,14 @@ export const Route = createRootRouteWithContext()({
         content:
           "Official website of Bharti Enterprises (bhartientreprise.in). Quality construction, industrial sheds, civil works, roads, foundations, and pipelines across India.",
       },
+      { property: "og:image", content: `${BASE}/og-image.jpg` },
+      { property: "og:image:secure_url", content: `${BASE}/og-image.jpg` },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/09953d9d-7fe3-43eb-87d8-793eec233dc9/id-preview-5031fd4d--76817cdc-c786-4053-aa60-283e2c3584ec.lovable.app-1784474468931.png",
+        property: "og:image:alt",
+        content: "Bharti Enterprises — Infrastructure & Construction Company India",
       },
       { property: "og:url", content: BASE },
       { name: "twitter:card", content: "summary_large_image" },
@@ -197,8 +201,11 @@ export const Route = createRootRouteWithContext()({
       },
       {
         name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/09953d9d-7fe3-43eb-87d8-793eec233dc9/id-preview-5031fd4d--76817cdc-c786-4053-aa60-283e2c3584ec.lovable.app-1784474468931.png",
+        content: `${BASE}/og-image.jpg`,
+      },
+      {
+        name: "twitter:image:alt",
+        content: "Bharti Enterprises — Infrastructure & Construction Company India",
       },
     ],
     links: [

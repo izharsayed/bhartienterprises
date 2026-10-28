@@ -123,7 +123,11 @@ export const Route = createFileRoute("/")({
         content:
           "Quality Construction · Reliable Solutions · Lasting Values. Official website of Bharti Enterprises (bhartientreprise.in).",
       },
+      { property: "og:image", content: "https://bhartientreprise.in/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { property: "og:url", content: "https://bhartientreprise.in/" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
         content: "Bharti Enterprises — Construction & Infrastructure Company | bhartientreprise.in",
@@ -133,6 +137,7 @@ export const Route = createFileRoute("/")({
         content:
           "Quality Construction · Reliable Solutions · Lasting Values. Delivering strong, sustainable infrastructure that adds lasting value.",
       },
+      { name: "twitter:image", content: "https://bhartientreprise.in/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bhartientreprise.in/" }],
   }),
